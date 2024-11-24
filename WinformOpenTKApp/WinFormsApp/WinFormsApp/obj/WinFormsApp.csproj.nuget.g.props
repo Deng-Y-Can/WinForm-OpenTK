@@ -14,7 +14,7 @@
     <SourceRoot Include="E:\vs\NuGetPackages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
   </ItemGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgOpenCVSharp Condition=" '$(PkgOpenCVSharp)' == '' ">C:\Users\Acer\.nuget\packages\opencvsharp\2.4.0.1</PkgOpenCVSharp>
-  </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)opencvsharp4.runtime.win\4.10.0.20241108\build\net5.0\OpenCvSharp4.runtime.win.props" Condition="Exists('$(NuGetPackageRoot)opencvsharp4.runtime.win\4.10.0.20241108\build\net5.0\OpenCvSharp4.runtime.win.props')" />
+  </ImportGroup>
 </Project>

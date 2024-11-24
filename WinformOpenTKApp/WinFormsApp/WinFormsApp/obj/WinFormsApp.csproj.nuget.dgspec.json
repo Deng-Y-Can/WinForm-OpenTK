@@ -143,9 +143,17 @@
               "target": "Package",
               "version": "[4.9.0.5494, )"
             },
-            "OpenCVSharp": {
+            "OpenCvSharp4": {
               "target": "Package",
-              "version": "[2.4.0.1, )"
+              "version": "[4.10.0.20241108, )"
+            },
+            "OpenCvSharp4.Extensions": {
+              "target": "Package",
+              "version": "[4.10.0.20241108, )"
+            },
+            "OpenCvSharp4.runtime.win": {
+              "target": "Package",
+              "version": "[4.10.0.20241108, )"
             },
             "OpenTK": {
               "target": "Package",

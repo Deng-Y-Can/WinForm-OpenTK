@@ -6,7 +6,6 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 using System.Drawing;
 using Emgu.CV.CvEnum;
-using OpenCvSharp;
 using CvInvoke = Emgu.CV.CvInvoke;
 using Emgu.CV.CvEnum;
 using ColorConversion = Emgu.CV.CvEnum.ColorConversion;
@@ -43,10 +42,12 @@ namespace WinFormsApp
 
         }
 
+        private string cascadePath = $@"E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\data\haarcascades\";
+        private string testPhoto = $@"E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\Picture\";
         private void button2_Click(object sender, EventArgs e)
         {
-            CascadeClassifier cascade = new CascadeClassifier("haarcascade_frontalface_default.xml");
-            Image<Bgr, byte> image = new Image<Bgr, byte>("group_photo.jpg");
+            CascadeClassifier cascade = new CascadeClassifier(cascadePath+"haarcascade_frontalface_default.xml");
+            Image<Bgr, byte> image = new Image<Bgr, byte>(testPhoto+"face1.jpg");
             Image<Gray, byte> grayImage = image.Convert<Gray, byte>();
 
             Rectangle[] faces = cascade.DetectMultiScale(grayImage, 1.3, 5);
