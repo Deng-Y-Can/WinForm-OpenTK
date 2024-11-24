@@ -1,6 +1,6 @@
-﻿namespace WinFormsApp
+﻿namespace WinFormsApp.OpenCV.OpenCvSharp
 {
-    partial class OpenCvSharpFourForm
+    partial class ImageProcessingForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,31 +35,31 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(125, 88);
+            pictureBox1.Location = new Point(95, 31);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(750, 507);
+            pictureBox1.Size = new Size(436, 347);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            button1.Location = new Point(898, 45);
+            button1.Location = new Point(633, 94);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 1;
             button1.Text = "加载图片";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += button1_Click_1;
             // 
-            // OpenCvSharpFourForm
+            // ImageProcessingForm
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1109, 672);
+            ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
-            Name = "OpenCvSharpFourForm";
-            Text = "OpenCvSharpFourForm";
+            Name = "ImageProcessingForm";
+            Text = "ImageProcessingForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
