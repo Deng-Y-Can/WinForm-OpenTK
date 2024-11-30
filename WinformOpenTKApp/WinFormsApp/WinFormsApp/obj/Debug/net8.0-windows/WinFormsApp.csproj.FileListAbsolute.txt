@@ -61,7 +61,6 @@ E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinForm
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\Common.dll
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\Common.pdb
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.csproj.AssemblyReference.cache
-E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.Form1.resources
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.OpenCVTestForm.resources
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.csproj.GenerateResource.cache
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.GeneratedMSBuildEditorConfig.editorconfig
@@ -114,3 +113,5 @@ E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinForm
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\runtimes\win-x86\native\opencv_videoio_ffmpeg4100.dll
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.VideoForm.resources
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.OpenCV.OpenCvSharp.ImageProcessingForm.resources
+E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.FuctionForm.resources
+E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.MainForm.resources

@@ -4,9 +4,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinFormsApp
 {
-    public partial class Form1 : Form
+    public partial class FuctionForm : Form
     {
-        public Form1()
+        public FuctionForm()
         {
             InitializeComponent();
         }
@@ -56,7 +56,7 @@ namespace WinFormsApp
             GL.EnableVertexAttribArray(0);
 
 
-            _shader = new Shader("Shaders/shader.vert1", "Shaders/shader.frage1");
+            _shader = new Shader(vertShader, frageShader,2);
             _shader.Use();
 
             GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
@@ -95,11 +95,34 @@ namespace WinFormsApp
             GL.EnableVertexAttribArray(0);
 
 
-            _shader = new Shader("Shaders/shader.vert1", "Shaders/shader.frage1");
+            _shader = new Shader(vertShader, frageShader, 2);
             _shader.Use();
 
             GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
             glControl1.SwapBuffers();
         }
+
+        private string vertShader = $@"
+
+#version 330 core
+
+layout(location = 0) in vec3 aPosition;
+
+void main(void)
+{{
+    gl_Position = vec4(aPosition, 1.0);
+}}";
+
+        private string frageShader = $@"
+#version 330
+
+out vec4 outputColor;
+
+void main()
+{{
+    outputColor = vec4(1.0, 1.0, 0, 1.0);
+}}";
+
     }
+    
 }
