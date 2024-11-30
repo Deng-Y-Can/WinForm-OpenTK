@@ -143,6 +143,10 @@
               "target": "Package",
               "version": "[4.9.0.5494, )"
             },
+            "Microsoft.CodeAnalysis.CSharp.Scripting": {
+              "target": "Package",
+              "version": "[4.11.0, )"
+            },
             "OpenCvSharp4": {
               "target": "Package",
               "version": "[4.10.0.20241108, )"

@@ -44,9 +44,13 @@
             glControl1.Name = "glControl1";
             glControl1.Profile = OpenTK.Windowing.Common.ContextProfile.Core;
             glControl1.SharedContext = null;
-            glControl1.Size = new Size(599, 418);
+            glControl1.Size = new Size(600, 420);
             glControl1.TabIndex = 0;
+            glControl1.Load += glControl1_Load;
             glControl1.Click += glControl1_Click;
+            glControl1.Paint += glControl1_Paint;
+            glControl1.MouseDown += glControl1_MouseDown;
+            glControl1.MouseMove += glControl1_MouseMove;
             // 
             // button1
             // 
