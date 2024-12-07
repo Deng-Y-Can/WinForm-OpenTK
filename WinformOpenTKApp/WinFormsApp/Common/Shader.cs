@@ -7,7 +7,7 @@ using OpenTK.Mathematics;
 
 namespace LearnOpenTK.Common
 {
-    // A simple class meant to help create shaders.
+   
     public class Shader
     {
         public readonly int Handle;
@@ -44,6 +44,12 @@ namespace LearnOpenTK.Common
                 _uniformLocations.Add(key, location);
             }
         }
+        /// <summary>
+        /// 加载着色器
+        /// </summary>
+        /// <param name="vertPath"></param>
+        /// <param name="fragPath"></param>
+        /// <param name="id"></param>
         public Shader(string vertPath, string fragPath,int id)
         {
             var shaderSource = vertPath;
@@ -108,49 +114,28 @@ namespace LearnOpenTK.Common
         }
 
 
-        /// <summary>
-        /// Set a uniform int on this shader.
-        /// </summary>
-        /// <param name="name">The name of the uniform</param>
-        /// <param name="data">The data to set</param>
+        
         public void SetInt(string name, int data)
         {
             GL.UseProgram(Handle);
             GL.Uniform1(_uniformLocations[name], data);
         }
 
-        /// <summary>
-        /// Set a uniform float on this shader.
-        /// </summary>
-        /// <param name="name">The name of the uniform</param>
-        /// <param name="data">The data to set</param>
+       
         public void SetFloat(string name, float data)
         {
             GL.UseProgram(Handle);
             GL.Uniform1(_uniformLocations[name], data);
         }
 
-        /// <summary>
-        /// Set a uniform Matrix4 on this shader
-        /// </summary>
-        /// <param name="name">The name of the uniform</param>
-        /// <param name="data">The data to set</param>
-        /// <remarks>
-        ///   <para>
-        ///   The matrix is transposed before being sent to the shader.
-        ///   </para>
-        /// </remarks>
+      
         public void SetMatrix4(string name, Matrix4 data)
         {
             GL.UseProgram(Handle);
             GL.UniformMatrix4(_uniformLocations[name], true, ref data);
         }
 
-        /// <summary>
-        /// Set a uniform Vector3 on this shader.
-        /// </summary>
-        /// <param name="name">The name of the uniform</param>
-        /// <param name="data">The data to set</param>
+       
         public void SetVector3(string name, Vector3 data)
         {
             GL.UseProgram(Handle);
