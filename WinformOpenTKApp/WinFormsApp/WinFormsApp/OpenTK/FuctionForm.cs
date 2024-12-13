@@ -1,24 +1,15 @@
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using OpenTK;
-using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL4;
-using System.IO;
-using System.Text;
 using OpenTK.Mathematics;
-using OpenTK.GLControl;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using LearnOpenTK.Common;
-using System.Security.Cryptography.Xml;
 
 namespace WinFormsApp
 {
     public partial class FuctionForm : Form
     {
-        private const float X_MIN = -5;
-        private const float X_MAX = 5;
-        private const int NUM_POINTS = 100;
+        private const float minX = -20;
+        private const float maxX = 20;
+        private const int pointCountX = 100;
         private float[] xValues;
         private float[] yValues;
         private float scaleFactor = 1.0f;
@@ -35,41 +26,45 @@ namespace WinFormsApp
         private int _pVAO;
 
         private Shader _shader;
-        private readonly float[] _verticesCoordinate =
-        {
-             X_MIN, 0, 0.0f, 
-             X_MAX, 0, 0.0f,
-             0, X_MIN, 0.0f,
-             0, X_MAX, 0.0f
-        };
-        private float[] _pointList;
+
+        private float[] _pointFunctionList;
+
+        private Axis axis;
+        private Camera _camera;
+        private Color4 _backgroundColor;  //背景颜色
 
         public FuctionForm()
         {
             InitializeComponent();
-            xValues = new float[NUM_POINTS];
-            yValues = new float[NUM_POINTS];
-            textBox1.Text = "x*x";
-            CalculateFunctionValues(textBox1.Text);
+            InitializationParam();
         }
 
-        private void glControl1_Click(object sender, EventArgs e)
-        {
 
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             string functionExpression = textBox1.Text;
             CalculateFunctionValues(functionExpression);
-            _pointList = GetPointList();
+            _pointFunctionList = GetPointList();
+            Render();
             glControl1.Invalidate();
         }
+
+
+        private void InitializationParam()
+        {
+            xValues = new float[pointCountX];
+            yValues = new float[pointCountX];
+            textBox1.Text = "x * x";
+            CalculateFunctionValues(textBox1.Text);
+            axis = new Axis(maxX, maxX, maxX, pointCountX);
+        }
+
         private void CalculateFunctionValues(string functionExpression)
         {
-            float dx = (X_MAX - X_MIN) / (NUM_POINTS - 1);
-            for (int i = 0; i < NUM_POINTS; i++)
+            float dx = (maxX - minX) / (pointCountX - 1);
+            for (int i = 0; i < pointCountX; i++)
             {
-                xValues[i] = X_MIN + i * dx;
+                xValues[i] = minX + i * dx;
                 try
                 {
                     yValues[i] = Convert.ToSingle(EvaluateFunction(functionExpression, xValues[i]).ToString());
@@ -78,16 +73,15 @@ namespace WinFormsApp
                 {
                     MessageBox.Show($"函数计算出错: {ex.Message}");
                 }
-                return;
+
             }
         }
 
-       
         public float[] GetPointList()
-        {          
-            float[] pointList= new float[NUM_POINTS*3];
+        {
+            float[] pointList = new float[pointCountX * 3];
             int index = 0;
-            for (int i = 0; i < NUM_POINTS; i++)
+            for (int i = 0; i < pointCountX; i++)
             {
                 pointList[index] = xValues[i];
                 index++;
@@ -105,96 +99,144 @@ namespace WinFormsApp
             string code = $"return {functionExpression.Replace("x", x.ToString())};";
             // 使用CSharpScript.EvaluateAsync来计算函数值
             return CSharpScript.EvaluateAsync(code).Result;
-        }          
+        }
 
         private void glControl1_Load(object sender, EventArgs e)
         {
-            glControl1.Width = 600;
-            glControl1.Height = 420;
-            
-            GL.ClearColor(0.5f, 0.2f, 0.5f, 1.0f);//背景颜色
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            _model = Matrix4.Identity;
-            _view = Matrix4.Identity;
-            _projection= Matrix4.Identity;
+            GL.Viewport(0, 0, Width, Height);
 
+            ClearColor();
+            _camera = new Camera(Vector3.UnitZ * 20, 1.2f);
             _shader = new Shader(vertCoordinateShader, frageCoordinateShader, 2);
             _shader.Use();
-            
-        }     
+            _model = Matrix4.Identity;
 
+
+        }
+        private void ClearColor()
+        {
+            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
+            GL.ClearColor(0.5f, 0.2f, 0.5f, 1.0f);//背景颜色
+        }
         private void glControl1_Paint(object sender, PaintEventArgs e)
         {
-            GL.ClearColor(0.5f, 0.2f, 0.5f, 1.0f);//背景颜色
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
+            ClearColor();
 
             _shader.Use();
+            SetMVP();
+            _pointFunctionList = GetPointList();
             _cVBO = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _cVBO);
-            GL.BufferData(BufferTarget.ArrayBuffer, _verticesCoordinate.Length * sizeof(float), _verticesCoordinate, BufferUsageHint.StaticDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, axis._vertexArray.Length * sizeof(float), axis._vertexArray, BufferUsageHint.StaticDraw);
 
             _cVAO = GL.GenVertexArray();
             GL.BindVertexArray(_cVAO);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
             GL.EnableVertexAttribArray(0);
-
-            transform = _model * _view * _projection;
-            _shader.SetMatrix4("transform", transform);
-
-            _pointList = GetPointList();
-
-            GL.DrawArrays(PrimitiveType.Lines, 0, 4);
+            GL.DrawArrays(PrimitiveType.Lines, 0, 6);
 
             _pVBO = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _pVBO);
-            GL.BufferData(BufferTarget.ArrayBuffer, _pointList.Length * sizeof(float), _pointList, BufferUsageHint.StaticDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, _pointFunctionList.Length * sizeof(float), _pointFunctionList, BufferUsageHint.StaticDraw);
 
             _pVAO = GL.GenVertexArray();
             GL.BindVertexArray(_pVAO);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, true, 3 * sizeof(float), 0);
             GL.EnableVertexAttribArray(0);
-            GL.DrawArrays(PrimitiveType.LineStrip, 0, NUM_POINTS);
+            GL.DrawArrays(PrimitiveType.LineStrip, 0, pointCountX);
 
             glControl1.SwapBuffers();
+        }
+
+        public void Render()
+        {
+            ClearColor();
+            _shader.Use();
+            SetMVP();
+
+            _pointFunctionList = GetPointList();
+            GL.BindVertexArray(_cVAO);
+            GL.DrawArrays(PrimitiveType.Lines, 0, 6);
+
+            GL.BindVertexArray(_pVAO);
+            GL.DrawArrays(PrimitiveType.LineStrip, 0, pointCountX);
+            glControl1.SwapBuffers();
+        }
+
+        private void SetMVP()
+        {
+            _shader.SetMatrix4("model", _model);
+            _shader.SetMatrix4("view", _camera.GetViewMatrix());
+            _shader.SetMatrix4("projection", _camera.GetProjectionMatrix());
+        }
+        private void SetUnitMVP()
+        {
+            _shader.SetMatrix4("model", Matrix4.Identity);
+            _shader.SetMatrix4("view", Matrix4.Identity);
+            _shader.SetMatrix4("projection", Matrix4.Identity);
+        }
+        private Matrix4 GetMVP()
+        {
+            return _model * _camera.GetViewMatrix() * _camera.GetProjectionMatrix();
         }
 
         private void glControl1_MouseDown(object sender, MouseEventArgs e)
         {
             translation = new Vector2(e.X, e.Y);
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _camera.Fov += 0.5f;
+            Render();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _camera.Fov -= 0.5f;
+            Render();
+        }
 
+        private bool _firstMove = true;
+
+        private Vector2 _lastPos;
+        const float cameraSpeed = 1.5f;
+        const float sensitivity = 0.2f;
         private void glControl1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                // 计算平移量
-                Vector2 currentPosition = new Vector2(e.X, e.Y);
-                Vector2 delta = currentPosition - translation;
-                translation = currentPosition;
+                if (_firstMove)
+                {
+                    _lastPos = new Vector2(e.X, e.Y);
+                    _firstMove = false;
+                }
+                else
+                {
 
-                // 将平移量转换为实际的坐标平移量
-                float dx = delta.X * (X_MAX - X_MIN) / glControl1.Width;
-                float dy = -delta.Y * (X_MAX - X_MIN) / glControl1.Height;
+                    var deltaX = e.X - _lastPos.X;
+                    var deltaY = e.Y - _lastPos.Y;
+                    _lastPos = new Vector2(e.X, e.Y);
 
-                
 
-                glControl1.Invalidate();
+                    _camera.Yaw -= deltaX * sensitivity;
+                    _camera.Pitch += deltaY * sensitivity;
+                }
+                Render();
+
+               
             }
         }
 
         private string vertCoordinateShader = $@"
-#version 450 core
+        #version 330 core
+        layout(location = 0) in vec3 aPosition;
+        uniform mat4 model;
+        uniform mat4 view;
+        uniform mat4 projection;
 
-layout(location = 0) in vec3 aPosition;
-
-uniform mat4 transform;
-
-void main(void)
-{{
- 
-    gl_Position = vec4(aPosition, 1.0) * transform;
-}}
+        void main(void)
+        {{
+         gl_Position = vec4(aPosition, 1.0) * model * view * projection;
+        }}
 ";
 
         private string frageCoordinateShader = $@"
@@ -204,9 +246,11 @@ out vec4 outputColor;
 
 void main()
 {{
-    outputColor = vec4(1.0, 1.0, 0, 1.0);
+    outputColor = vec4(1.0, 0.0, 0, 1.0);
 }}"
  ;
+
+       
     }
 
 }
