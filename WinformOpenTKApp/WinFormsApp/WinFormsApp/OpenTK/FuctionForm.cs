@@ -3,6 +3,7 @@ using OpenTK.Mathematics;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using LearnOpenTK.Common;
 using System.Windows.Forms;
+using WinFormsApp.CandyModel;
 
 namespace WinFormsApp
 {
