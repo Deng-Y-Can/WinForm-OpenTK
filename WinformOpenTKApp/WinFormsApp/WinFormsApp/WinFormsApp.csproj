@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="OpenTK\FuctionForm.cs">
+    <Compile Update="MyOpenTK\FuctionForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

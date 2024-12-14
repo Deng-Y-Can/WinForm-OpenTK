@@ -9,18 +9,14 @@ namespace WinFormsApp
 {
     public partial class FuctionForm : Form
     {
-        private const float minX = -20;
-        private const float maxX = 20;
-        private const int pointCountX = 100;
-        private float[] xValues;
-        private float[] yValues;
+        private const float maxAxis = 100;
+        private const float max = 20;
+        private const int pointCount = 100;
+       
         private float scaleFactor = 1.0f;
         private Vector2 translation = Vector2.Zero;
 
-        private Matrix4 _model;
-        private Matrix4 _view;
-        private Matrix4 _projection;
-        private Matrix4 transform;
+        private Matrix4 _model;     
 
         private int _cVBO;
         private int _cVAO;
@@ -29,12 +25,13 @@ namespace WinFormsApp
 
         private Shader _shader;
 
-        private float[] _pointFunctionList;
+      
 
         private Axis axis;
         private Camera _camera;
         private Color4 _backgroundColor;  //背景颜色
 
+        private BaseCandyFuctionModel baseCandyFuctionModel;
         public FuctionForm()
         {
             InitializeComponent();
@@ -45,67 +42,29 @@ namespace WinFormsApp
         private void button1_Click(object sender, EventArgs e)
         {
             string functionExpression = textBox1.Text;
-            CalculateFunctionValues(functionExpression);
-            _pointFunctionList = GetPointList();
+            baseCandyFuctionModel = new BaseCandyFuctionModel(-max, max, pointCount, textBox1.Text);
+            _pVBO = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, _pVBO);
+            GL.BufferData(BufferTarget.ArrayBuffer, baseCandyFuctionModel._vertexArray.Length * sizeof(float), baseCandyFuctionModel._vertexArray, BufferUsageHint.StaticDraw);
+
+            _pVAO = GL.GenVertexArray();
+            GL.BindVertexArray(_pVAO);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, true, 3 * sizeof(float), 0);
+            GL.EnableVertexAttribArray(0);
             Render();
-            glControl1.Invalidate();
         }
 
 
         private void InitializationParam()
         {
-            xValues = new float[pointCountX];
-            yValues = new float[pointCountX];
+           
             textBox1.Text = "x * x";
-            CalculateFunctionValues(textBox1.Text);
-            axis = new Axis(maxX, maxX, maxX, pointCountX);
+            axis = new Axis(maxAxis, maxAxis, maxAxis, pointCount);
         }
         private void ClearColor()
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
             GL.ClearColor(0.5f, 0.2f, 0.5f, 1.0f);//背景颜色
-        }
-
-        private void CalculateFunctionValues(string functionExpression)
-        {
-            float dx = (maxX - minX) / (pointCountX - 1);
-            for (int i = 0; i < pointCountX; i++)
-            {
-                xValues[i] = minX + i * dx;
-                try
-                {
-                    yValues[i] = Convert.ToSingle(EvaluateFunction(functionExpression, xValues[i]).ToString());
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"函数计算出错: {ex.Message}");
-                }
-
-            }
-        }
-
-        public float[] GetPointList()
-        {
-            float[] pointList = new float[pointCountX * 3];
-            int index = 0;
-            for (int i = 0; i < pointCountX; i++)
-            {
-                pointList[index] = xValues[i];
-                index++;
-                pointList[index] = yValues[i];
-                index++;
-                pointList[index] = 0;
-                index++;
-            }
-            return pointList;
-        }
-
-        private object EvaluateFunction(string functionExpression, float x)
-        {
-            // 创建一个临时的C#代码片段，将输入的函数表达式中的 'x' 替换为实际的数值
-            string code = $"return {functionExpression.Replace("x", x.ToString())};";
-            // 使用CSharpScript.EvaluateAsync来计算函数值
-            return CSharpScript.EvaluateAsync(code).Result;
         }
 
         private void glControl1_Load(object sender, EventArgs e)
@@ -126,7 +85,8 @@ namespace WinFormsApp
 
             _shader.Use();
             SetMVP();
-            _pointFunctionList = GetPointList();
+            baseCandyFuctionModel = new BaseCandyFuctionModel(-max, max, pointCount, textBox1.Text);
+          
             _cVBO = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _cVBO);
             GL.BufferData(BufferTarget.ArrayBuffer, axis._vertexArray.Length * sizeof(float), axis._vertexArray, BufferUsageHint.StaticDraw);
@@ -139,13 +99,13 @@ namespace WinFormsApp
 
             _pVBO = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, _pVBO);
-            GL.BufferData(BufferTarget.ArrayBuffer, _pointFunctionList.Length * sizeof(float), _pointFunctionList, BufferUsageHint.StaticDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, baseCandyFuctionModel._vertexArray.Length * sizeof(float), baseCandyFuctionModel._vertexArray, BufferUsageHint.StaticDraw);
 
             _pVAO = GL.GenVertexArray();
             GL.BindVertexArray(_pVAO);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, true, 3 * sizeof(float), 0);
             GL.EnableVertexAttribArray(0);
-            GL.DrawArrays(PrimitiveType.LineStrip, 0, pointCountX);
+            GL.DrawArrays(PrimitiveType.LineStrip, 0, baseCandyFuctionModel._pointCount);
 
             glControl1.SwapBuffers();
         }
@@ -155,13 +115,12 @@ namespace WinFormsApp
             ClearColor();
             _shader.Use();
             SetMVP();
-
-            _pointFunctionList = GetPointList();
+          
             GL.BindVertexArray(_cVAO);
             GL.DrawArrays(PrimitiveType.Lines, 0, 6);
 
             GL.BindVertexArray(_pVAO);
-            GL.DrawArrays(PrimitiveType.LineStrip, 0, pointCountX);
+            GL.DrawArrays(PrimitiveType.LineStrip, 0, baseCandyFuctionModel._pointCount);
             glControl1.SwapBuffers();
         }
 
