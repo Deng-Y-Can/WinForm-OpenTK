@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\opentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\opentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\winformsapp\\opentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\opentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\opentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\opentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "WinFormsApp\\OpenTK\\FuctionForm.Designer.cs",
               "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\OpenTK\\FuctionForm.Designer.cs",
               "RelativeToolTip": "WinFormsApp\\OpenTK\\FuctionForm.Designer.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAWwHcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAWwMEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-13T14:18:45.743Z",
               "EditorCaption": ""
@@ -53,14 +53,14 @@
               "RelativeDocumentMoniker": "WinFormsApp\\Program.cs",
               "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Program.cs",
               "RelativeToolTip": "WinFormsApp\\Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAkwA8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-08T14:29:44.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FuctionForm.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\OpenTK\\FuctionForm.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\OpenTK\\FuctionForm.cs",
@@ -72,13 +72,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FuctionForm.cs",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\OpenTK\\FuctionForm.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\OpenTK\\FuctionForm.cs",
               "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\OpenTK\\FuctionForm.cs",
               "RelativeToolTip": "WinFormsApp\\OpenTK\\FuctionForm.cs",
-              "ViewState": "AgIAALIAAAAAAAAAAAASwLwAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAcwF0BAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-08T14:27:21.94Z",
               "EditorCaption": ""
