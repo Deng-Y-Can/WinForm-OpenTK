@@ -10,6 +10,8 @@
         "dependencies": {
           "Common": "1.0.0",
           "Emgu.CV": "4.9.0.5494",
+          "Emgu.CV.Bitmap": "4.9.0.5494",
+          "Emgu.CV.UI": "4.9.0.5494",
           "Emgu.CV.runtime.windows": "4.9.0.5494",
           "Microsoft.CodeAnalysis.CSharp.Scripting": "4.11.0",
           "OpenCvSharp4": "4.10.0.20241108",
@@ -31,6 +33,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Emgu.CV.dll": {
+            "assemblyVersion": "4.9.0.5494",
+            "fileVersion": "4.9.0.5494"
+          }
+        }
+      },
+      "Emgu.CV.Bitmap/4.9.0.5494": {
+        "dependencies": {
+          "Emgu.CV": "4.9.0.5494",
+          "System.Drawing.Common": "8.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Emgu.CV.Bitmap.dll": {
             "assemblyVersion": "4.9.0.5494",
             "fileVersion": "4.9.0.5494"
           }
@@ -78,6 +92,17 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "2023.12.0.0"
+          }
+        }
+      },
+      "Emgu.CV.UI/4.9.0.5494": {
+        "dependencies": {
+          "Emgu.CV.Bitmap": "4.9.0.5494"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Emgu.CV.Platform.NetCore.dll": {
+            "assemblyVersion": "4.9.0.5494",
+            "fileVersion": "4.9.0.5494"
           }
         }
       },
@@ -450,7 +475,7 @@
       "OpenCvSharp4.Extensions/4.10.0.20241108": {
         "dependencies": {
           "OpenCvSharp4": "4.10.0.20241108",
-          "System.Drawing.Common": "8.0.0"
+          "System.Drawing.Common": "8.0.1"
         },
         "runtime": {
           "lib/net6.0/OpenCvSharp.Extensions.dll": {
@@ -654,9 +679,15 @@
         }
       },
       "System.Collections.Immutable/8.0.0": {},
-      "System.Drawing.Common/8.0.0": {
+      "System.Drawing.Common/8.0.1": {
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.123.58006"
+          }
         }
       },
       "System.Drawing.Primitives/4.3.0": {
@@ -815,12 +846,26 @@
       "path": "emgu.cv/4.9.0.5494",
       "hashPath": "emgu.cv.4.9.0.5494.nupkg.sha512"
     },
+    "Emgu.CV.Bitmap/4.9.0.5494": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0ukJNIRXF5RXffF3ly0ujLtX0ojQGIHM7jmKkZuuvLSu2ubhVHZdZeqIBVa95/P7B6YDyC10vkGFhMSiFUeoOw==",
+      "path": "emgu.cv.bitmap/4.9.0.5494",
+      "hashPath": "emgu.cv.bitmap.4.9.0.5494.nupkg.sha512"
+    },
     "Emgu.CV.runtime.windows/4.9.0.5494": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-sByLvyNCzQCScjKHLRm1NrghPUOClXRxVibCav3ou8scflQA28aWB1P+nBMjyBE1qIQ1CGA+h5UB9XGtBSf5xg==",
       "path": "emgu.cv.runtime.windows/4.9.0.5494",
       "hashPath": "emgu.cv.runtime.windows.4.9.0.5494.nupkg.sha512"
+    },
+    "Emgu.CV.UI/4.9.0.5494": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cxnZaykeqZwgunkM5uQZUgYbu2cN3je6QKY8hkWPuA+Rb0d04FMoCiwQ5SARcMxQ1blH5+poNsMYd9RCuIU42Q==",
+      "path": "emgu.cv.ui/4.9.0.5494",
+      "hashPath": "emgu.cv.ui.4.9.0.5494.nupkg.sha512"
     },
     "Emgu.runtime.windows.msvc.rt.arm64/19.39.33523": {
       "type": "package",
@@ -1032,12 +1077,12 @@
       "path": "system.collections.immutable/8.0.0",
       "hashPath": "system.collections.immutable.8.0.0.nupkg.sha512"
     },
-    "System.Drawing.Common/8.0.0": {
+    "System.Drawing.Common/8.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JkbHJjtI/dWc5dfmEdJlbe3VwgZqCkZRtfuWFh5GOv0f+gGCfBtzMpIVkmdkj2AObO9y+oiOi81UGwH3aBYuqA==",
-      "path": "system.drawing.common/8.0.0",
-      "hashPath": "system.drawing.common.8.0.0.nupkg.sha512"
+      "sha512": "sha512-x0rAZECxIGx/YVjN28YRdpqka0+H7YMN9741FUDzipXPDzesd60gef/LI0ZCOcYSDsacTLTHvMAvxHG+TjbNNQ==",
+      "path": "system.drawing.common/8.0.1",
+      "hashPath": "system.drawing.common.8.0.1.nupkg.sha512"
     },
     "System.Drawing.Primitives/4.3.0": {
       "type": "package",

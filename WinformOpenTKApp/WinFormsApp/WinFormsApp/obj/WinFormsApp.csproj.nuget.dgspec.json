@@ -139,6 +139,14 @@
               "target": "Package",
               "version": "[4.9.0.5494, )"
             },
+            "Emgu.CV.Bitmap": {
+              "target": "Package",
+              "version": "[4.9.0.5494, )"
+            },
+            "Emgu.CV.UI": {
+              "target": "Package",
+              "version": "[4.9.0.5494, )"
+            },
             "Emgu.CV.runtime.windows": {
               "target": "Package",
               "version": "[4.9.0.5494, )"

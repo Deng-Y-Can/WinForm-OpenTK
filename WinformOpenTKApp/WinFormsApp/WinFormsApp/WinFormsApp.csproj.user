@@ -4,19 +4,19 @@
     <Compile Update="ContentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="OpenCV\OpenCvSharp\ImageProcessingForm.cs">
+    <Compile Update="MyOpenCV\OpenCvSharp\ImageProcessingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="MyOpenTK\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="OpenCV\OpenCvSharp\OpenCvSharpFourForm.cs">
+    <Compile Update="MyOpenCV\OpenCvSharp\OpenCvSharpFourForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="OpenCV\EmguCV\OpenCVTestForm.cs">
+    <Compile Update="MyOpenCV\EmguCV\OpenCVTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="OpenCV\OpenCvSharp\VideoForm.cs">
+    <Compile Update="MyOpenCV\OpenCvSharp\VideoForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

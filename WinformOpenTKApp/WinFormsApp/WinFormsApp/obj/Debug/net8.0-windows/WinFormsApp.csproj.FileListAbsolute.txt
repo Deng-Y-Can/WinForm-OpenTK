@@ -172,3 +172,6 @@ E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinForm
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
 E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.ContentsForm.resources
+E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\Emgu.CV.Bitmap.dll
+E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\Emgu.CV.Platform.NetCore.dll
+E:\home\github\WinformOpenTK\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\System.Drawing.Common.dll

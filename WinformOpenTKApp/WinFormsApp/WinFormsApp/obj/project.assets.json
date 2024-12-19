@@ -21,6 +21,23 @@
           }
         }
       },
+      "Emgu.CV.Bitmap/4.9.0.5494": {
+        "type": "package",
+        "dependencies": {
+          "Emgu.CV": "4.9.0.5494",
+          "System.Drawing.Common": "8.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Emgu.CV.Bitmap.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Emgu.CV.Bitmap.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Emgu.CV.runtime.windows/4.9.0.5494": {
         "type": "package",
         "dependencies": {
@@ -57,6 +74,22 @@
           "runtimes/win-x86/native/opencv_videoio_ffmpeg490.dll": {
             "assetType": "native",
             "rid": "win-x86"
+          }
+        }
+      },
+      "Emgu.CV.UI/4.9.0.5494": {
+        "type": "package",
+        "dependencies": {
+          "Emgu.CV.Bitmap": "4.9.0.5494"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Emgu.CV.Platform.NetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Emgu.CV.Platform.NetCore.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -772,7 +805,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "System.Drawing.Common/8.0.0": {
+      "System.Drawing.Common/8.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "8.0.0"
@@ -1134,6 +1167,22 @@
         "lib/xamarinios10/Emgu.CV.xml"
       ]
     },
+    "Emgu.CV.Bitmap/4.9.0.5494": {
+      "sha512": "0ukJNIRXF5RXffF3ly0ujLtX0ojQGIHM7jmKkZuuvLSu2ubhVHZdZeqIBVa95/P7B6YDyC10vkGFhMSiFUeoOw==",
+      "type": "package",
+      "path": "emgu.cv.bitmap/4.9.0.5494",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "docs/README.md",
+        "emgu.cv.bitmap.4.9.0.5494.nupkg.sha512",
+        "emgu.cv.bitmap.nuspec",
+        "lib/netstandard2.0/Emgu.CV.Bitmap.dll",
+        "lib/netstandard2.0/Emgu.CV.Bitmap.xml",
+        "nuget_icon.png"
+      ]
+    },
     "Emgu.CV.runtime.windows/4.9.0.5494": {
       "sha512": "sByLvyNCzQCScjKHLRm1NrghPUOClXRxVibCav3ou8scflQA28aWB1P+nBMjyBE1qIQ1CGA+h5UB9XGtBSf5xg==",
       "type": "package",
@@ -1156,6 +1205,24 @@
         "runtimes/win-x86/native/cvextern.dll",
         "runtimes/win-x86/native/libusb-1.0.dll",
         "runtimes/win-x86/native/opencv_videoio_ffmpeg490.dll"
+      ]
+    },
+    "Emgu.CV.UI/4.9.0.5494": {
+      "sha512": "cxnZaykeqZwgunkM5uQZUgYbu2cN3je6QKY8hkWPuA+Rb0d04FMoCiwQ5SARcMxQ1blH5+poNsMYd9RCuIU42Q==",
+      "type": "package",
+      "path": "emgu.cv.ui/4.9.0.5494",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "docs/README.md",
+        "emgu.cv.ui.4.9.0.5494.nupkg.sha512",
+        "emgu.cv.ui.nuspec",
+        "icon.png",
+        "lib/net461/Emgu.CV.Platform.NetFramework.dll",
+        "lib/net461/Emgu.CV.Platform.NetFramework.xml",
+        "lib/netcoreapp3.1/Emgu.CV.Platform.NetCore.dll",
+        "lib/netcoreapp3.1/Emgu.CV.Platform.NetCore.xml"
       ]
     },
     "Emgu.runtime.windows.msvc.rt.arm64/19.39.33523": {
@@ -2492,10 +2559,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Drawing.Common/8.0.0": {
-      "sha512": "JkbHJjtI/dWc5dfmEdJlbe3VwgZqCkZRtfuWFh5GOv0f+gGCfBtzMpIVkmdkj2AObO9y+oiOi81UGwH3aBYuqA==",
+    "System.Drawing.Common/8.0.1": {
+      "sha512": "x0rAZECxIGx/YVjN28YRdpqka0+H7YMN9741FUDzipXPDzesd60gef/LI0ZCOcYSDsacTLTHvMAvxHG+TjbNNQ==",
       "type": "package",
-      "path": "system.drawing.common/8.0.0",
+      "path": "system.drawing.common/8.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2527,7 +2594,7 @@
         "lib/xamarinmac20/_._",
         "lib/xamarintvos10/_._",
         "lib/xamarinwatchos10/_._",
-        "system.drawing.common.8.0.0.nupkg.sha512",
+        "system.drawing.common.8.0.1.nupkg.sha512",
         "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3704,6 +3771,8 @@
     "net8.0-windows7.0": [
       "Common >= 1.0.0",
       "Emgu.CV >= 4.9.0.5494",
+      "Emgu.CV.Bitmap >= 4.9.0.5494",
+      "Emgu.CV.UI >= 4.9.0.5494",
       "Emgu.CV.runtime.windows >= 4.9.0.5494",
       "Microsoft.CodeAnalysis.CSharp.Scripting >= 4.11.0",
       "OpenCvSharp4 >= 4.10.0.20241108",
@@ -3772,6 +3841,14 @@
         "targetAlias": "net8.0-windows",
         "dependencies": {
           "Emgu.CV": {
+            "target": "Package",
+            "version": "[4.9.0.5494, )"
+          },
+          "Emgu.CV.Bitmap": {
+            "target": "Package",
+            "version": "[4.9.0.5494, )"
+          },
+          "Emgu.CV.UI": {
             "target": "Package",
             "version": "[4.9.0.5494, )"
           },

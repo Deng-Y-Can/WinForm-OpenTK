@@ -3,11 +3,31 @@
   "WorkspaceRootPath": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\dll\\candyegcvtool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\dll\\candyegcvtool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\opencvsharp\\videoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\opencvsharp\\videoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\opencvsharp\\opencvsharpfourform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\opencvsharp\\opencvsharpfourform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\opencvsharp\\imageprocessingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\opencvsharp\\imageprocessingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\opencvtestform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\opencvtestform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopentk\\candymodel\\basecandyfuctionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopentk\\candymodel\\basecandyfuctionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\winformsapp\\myopentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopentk\\fuctionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -34,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,33 +62,98 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VideoForm.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\OpenCvSharp\\VideoForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\OpenCvSharp\\VideoForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\OpenCvSharp\\VideoForm.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\OpenCvSharp\\VideoForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T13:49:38.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OpenCvSharpFourForm.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\OpenCvSharp\\OpenCvSharpFourForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\OpenCvSharp\\OpenCvSharpFourForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\OpenCvSharp\\OpenCvSharpFourForm.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\OpenCvSharp\\OpenCvSharpFourForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T13:49:33.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ImageProcessingForm.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\OpenCvSharp\\ImageProcessingForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\OpenCvSharp\\ImageProcessingForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\OpenCvSharp\\ImageProcessingForm.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\OpenCvSharp\\ImageProcessingForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T13:48:52.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OpenCVTestForm.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\OpenCVTestForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\OpenCVTestForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\OpenCVTestForm.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\OpenCVTestForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T13:48:44.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CandyEgCVTool.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\DLL\\CandyEgCVTool.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\DLL\\CandyEgCVTool.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\DLL\\CandyEgCVTool.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\DLL\\CandyEgCVTool.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T13:46:29.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "DataTool.cs",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenTK\\DLL\\DataTool.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\MyOpenTK\\DLL\\DataTool.cs",
               "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenTK\\DLL\\DataTool.cs",
               "RelativeToolTip": "WinFormsApp\\MyOpenTK\\DLL\\DataTool.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAABIwBsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T13:48:06.853Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Axis.cs",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenTK\\CandyModel\\Axis.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\MyOpenTK\\CandyModel\\Axis.cs",
               "ToolTip": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenTK\\CandyModel\\Axis.cs",
               "RelativeToolTip": "WinFormsApp\\MyOpenTK\\CandyModel\\Axis.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwCsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAywCsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T13:46:20.887Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "BaseCandyFuctionModel.cs",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenTK\\CandyModel\\BaseCandyFuctionModel.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\MyOpenTK\\CandyModel\\BaseCandyFuctionModel.cs",
@@ -81,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "FuctionForm.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenTK\\FuctionForm.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\MyOpenTK\\FuctionForm.cs",
@@ -93,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "FuctionForm.cs",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenTK\\FuctionForm.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\MyOpenTK\\FuctionForm.cs",
@@ -106,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Program.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\Program.cs",
