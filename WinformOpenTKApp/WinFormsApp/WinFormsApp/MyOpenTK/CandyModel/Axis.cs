@@ -81,20 +81,20 @@ public class Axis
         vector3s.Add(new Vector3(maxX, 0, 0));
 
         float dy = (maxY - minY) / (pointCountY - 1);
-        vector3s.Add(new Vector3(minY, 0, 0));
+        vector3s.Add(new Vector3( 0, minY, 0));
         for (int i = 0; i < pointCountY; i++)
         {
-            vector3s.Add(new Vector3(minY + i * dy, 0, 0));
+            vector3s.Add(new Vector3(0, minY + i * dy, 0));
         }
-        vector3s.Add(new Vector3(maxY, 0, 0));
+        vector3s.Add(new Vector3(0, maxY,  0));
 
         float dz = (maxZ - minZ) / (pointCountZ - 1);
-        vector3s.Add(new Vector3(minZ, 0, 0));
+        vector3s.Add(new Vector3( 0, 0, minZ));
         for (int i = 0; i < pointCountZ; i++)
         {
-            vector3s.Add(new Vector3(minZ + i * dz, 0, 0));
+            vector3s.Add(new Vector3(0, 0,minZ + i * dz ));
         }
-        vector3s.Add(new Vector3(maxZ, 0, 0));
+        vector3s.Add(new Vector3(0, 0, maxZ));
 
         return vector3s;
     }

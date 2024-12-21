@@ -68,7 +68,7 @@ namespace WinFormsApp
         private void ClearColor()
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
-            GL.ClearColor(0.5f, 0.2f, 0.5f, 1.0f);//±³¾°ÑÕÉ«
+            GL.ClearColor(0.0f, 0.5f, 0.0f, 1.0f);//±³¾°ÑÕÉ«
         }
 
         private void glControl1_Load(object sender, EventArgs e)
@@ -337,7 +337,7 @@ namespace WinFormsApp
         /// <param name="_vertexSpacingArray"></param>
         public void RenderPointList(float[] _vertexSpacingArray)
         {
-            _pointShader = new Shader(vertModelShader, GetFrage("0.2,0.2, 0.2, 1.0"), 0);
+            _pointShader = new Shader(vertModelShader, GetFrage("0.45,0.2, 0.8, 1.0"), 0);
             SetMVP(_pointShader);
             _pointShader.Use();
             var _vertexBufferObject4 = GL.GenBuffer();
@@ -347,7 +347,6 @@ namespace WinFormsApp
             GL.BindVertexArray(_vertexArrayObject4);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);//½âÎö¶¥µã
             GL.EnableVertexAttribArray(0);
-            SetUnitMVP(_shader);
             GL.PointSize(5f);
             GL.DrawArrays(PrimitiveType.Points, 0, _vertexSpacingArray.Length);
             GL.PointSize(1);
