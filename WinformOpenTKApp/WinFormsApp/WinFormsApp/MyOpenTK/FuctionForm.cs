@@ -5,6 +5,7 @@ using LearnOpenTK.Common;
 using System.Windows.Forms;
 using WinFormsApp.CandyModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using OpenTK.GLControl;
 
 namespace WinFormsApp
 {
@@ -18,8 +19,10 @@ namespace WinFormsApp
         private float cameraHeight = 20;
         private Vector2 translation = Vector2.Zero;
 
+        private float _scalingPositionFactor=15f;
+
         private Matrix4 _model;
-        private float scale = 10;
+        private float scale = 1;
 
         private int _cVBO;
         private int _cVAO;
@@ -33,12 +36,13 @@ namespace WinFormsApp
 
         private Axis axis;
         private Camera _camera;
-        private Color4 _backgroundColor;  //±³¾°ÑÕÉ«
+        private Color4 _backgroundColor=new Color4(0.6f,0.6f,1,1);  //±³¾°ÑÕÉ«
 
         private BaseCandyFuctionModel baseCandyFuctionModel;
         public FuctionForm()
         {
             InitializeComponent();
+            glControl1.MouseWheel+= new System.Windows.Forms.MouseEventHandler(MouseWheel);
             InitializationParam();
         }
 
@@ -68,14 +72,14 @@ namespace WinFormsApp
         private void ClearColor()
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
-            GL.ClearColor(0.0f, 0.5f, 0.0f, 1.0f);//±³¾°ÑÕÉ«
+            GL.ClearColor(_backgroundColor.R, _backgroundColor.G, _backgroundColor.B, 1.0f);//±³¾°ÑÕÉ«
         }
 
         private void glControl1_Load(object sender, EventArgs e)
         {
             GL.Viewport(0, 0, Width, Height);
 
-            ClearColor();
+             ClearColor();
             _camera = new Camera(Vector3.UnitZ * cameraHeight, 1.2f);
             _shader = new Shader(vertCoordinateShader, frageCoordinateShader, 2);
             _shader.Use();
@@ -212,6 +216,25 @@ namespace WinFormsApp
                     Render();
                 }
             }
+        }
+        /// <summary>
+        /// Êó±ê¹öÂÖ¿ØÖÆÄ£ÐÍ·ÅËõ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (_camera != null)
+            {
+                //¹öÂÖÊÂ¼þ
+
+                float frontLength = e.Delta / 100 * _scalingPositionFactor;
+                _camera.Position += _camera.Front * frontLength;
+              
+                _firstMove = true;
+                Render();
+            }
+
         }
         private void glControl1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -432,8 +455,8 @@ namespace WinFormsApp
 
         private void FuctionForm_SizeChanged(object sender, EventArgs e)
         {
-            glControl1.Width = (int)(this.Width*0.6);
-            glControl1.Height = (int)(this.Width * 0.6);
+            glControl1.Width = (int)(this.Width*0.7);
+            glControl1.Height = (int)(this.Width * 0.7);
             GL.Viewport(0, 0, glControl1.Width, glControl1.Height);
             Render();
         }

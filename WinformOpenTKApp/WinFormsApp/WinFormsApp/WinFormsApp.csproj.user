@@ -7,6 +7,9 @@
     <Compile Update="MyOpenCV\OpenCvSharp\ImageProcessingForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MyOpenTK\CandyHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MyOpenTK\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

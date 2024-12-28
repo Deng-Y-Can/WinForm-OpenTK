@@ -1,3 +1,4 @@
+using WinFormsApp.MyOpenTK;
 using WinFormsApp.OpenCV.OpenCvSharp;
 
 namespace WinFormsApp
@@ -5,7 +6,7 @@ namespace WinFormsApp
     internal static class Program
     {
         /// <summary>
-        ///  The main entry point for the application.
+        ///  主程序入口
         /// </summary>
         [STAThread]
         static void Main()
