@@ -12,7 +12,7 @@ namespace WinFormsApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new FuctionForm());
+            Application.Run(new CandyHomeForm());
         }
     }
 }

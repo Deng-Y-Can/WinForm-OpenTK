@@ -130,7 +130,248 @@ namespace WinFormsApp.MyOpenTK.DLL
             return points;
         }
 
+        /// <summary>
+        /// 矩形
+        /// </summary>
+        /// <param name="center"></param>
+        /// <param name="pointOnCircle1"></param>
+        /// <returns></returns>
+        public static List<Vector3> Rectangle(Vector3 center, Vector3 pointOnCircle1)
+        {
+            List<Vector3> vertices = new List<Vector3>();
+            // 计算对角线向量
+            Vector3 diagonalVector = pointOnCircle1 - center;
 
+            // 通过向量叉乘获取与对角线向量垂直的两个相互垂直的单位向量
+            // 先选择一个参考向量（这里选择 (0, 0, 1) 作为参考向量，只要不和对角线向量平行就行，若平行需要换参考向量）
+            Vector3 referenceVector = new Vector3(0, 0, 1);
+            // 检查对角线向量是否与参考向量平行，如果平行则换一个参考向量（比如 (0, 1, 0) ）
+            if (Math.Abs(Vector3.Dot(diagonalVector, referenceVector)) / (diagonalVector.Length * referenceVector.Length) == 1)
+            {
+                referenceVector = new Vector3(0, 1, 0);
+            }
+
+            // 使用向量叉乘获取第一个垂直向量
+            Vector3 perpendicularVector1 = Vector3.Cross(diagonalVector, referenceVector);
+            perpendicularVector1.Normalize();
+
+            // 使用向量叉乘获取第二个垂直向量（与对角线向量和第一个垂直向量都垂直）
+            Vector3 perpendicularVector2 = Vector3.Cross(diagonalVector, perpendicularVector1);
+            perpendicularVector2.Normalize();
+
+            // 计算矩形另外两个顶点的向量偏移量（通过将垂直单位向量乘以对角线向量长度的一半）
+            Vector3 offset1 = perpendicularVector1 * (diagonalVector.Length / 2);
+            Vector3 offset2 = perpendicularVector2 * (diagonalVector.Length / 2);
+
+            // 计算四个顶点坐标并添加到列表中
+            vertices.Add(center + offset1 + offset2);
+            vertices.Add(center + offset1 - offset2);
+            vertices.Add(center - offset1 - offset2);
+            vertices.Add(center - offset1 + offset2);
+
+            return vertices;
+        }
+
+        public static List<Vector3> RectangleList(Vector3 center, Vector3 pointOnCircle1, int m, int n)
+        {
+            List<Vector3> vertices = new List<Vector3>();
+
+            // 计算对角线向量
+            Vector3 diagonalVector = pointOnCircle1 - center;
+
+            // 通过向量叉乘获取与对角线向量垂直的两个相互垂直的单位向量
+            // 先选择一个参考向量（这里选择 (0, 0, 1) 作为参考向量，只要不和对角线向量平行就行，若平行需要换参考向量）
+            Vector3 referenceVector = new Vector3(0, 0, 1);
+            // 检查对角线向量是否与参考向量平行，如果平行则换一个参考向量（比如 (0, 1, 0) ）
+            if (Math.Abs(Vector3.Dot(diagonalVector, referenceVector)) / (diagonalVector.Length * referenceVector.Length) == 1)
+            {
+                referenceVector = new Vector3(0, 1, 0);
+            }
+
+            // 使用向量叉乘获取第一个垂直向量
+            Vector3 perpendicularVector1 = Vector3.Cross(diagonalVector, referenceVector);
+            perpendicularVector1.Normalize();
+
+            // 使用向量叉乘获取第二个垂直向量（与对角线向量和第一个垂直向量都垂直）
+            Vector3 perpendicularVector2 = Vector3.Cross(diagonalVector, perpendicularVector1);
+            perpendicularVector2.Normalize();
+
+            // 计算矩形另外两个顶点的向量偏移量（通过将垂直单位向量乘以对角线向量长度的一半）
+            Vector3 offset1 = perpendicularVector1 * (diagonalVector.Length / 2);
+            Vector3 offset2 = perpendicularVector2 * (diagonalVector.Length / 2);
+
+            // 生成四条边上的点
+            // 第一条边（从 center + offset1 + offset2 到 center + offset1 - offset2）
+            for (int i = 0; i < m; i++)
+            {
+                float t = (float)i / (m - 1);
+                Vector3 interpolatedPoint = Vector3.Lerp(center + offset1 + offset2, center + offset1 - offset2, t);
+                vertices.Add(interpolatedPoint);
+            }
+
+            // 第二条边（从 center + offset1 - offset2 到 center - offset1 - offset2）
+            for (int i = 0; i < n; i++)
+            {
+                float t = (float)i / (n - 1);
+                Vector3 interpolatedPoint = Vector3.Lerp(center + offset1 - offset2, center - offset1 - offset2, t);
+                vertices.Add(interpolatedPoint);
+            }
+
+            // 第三条边（从 center - offset1 - offset2 到 center - offset1 + offset2）
+            for (int i = 0; i < m; i++)
+            {
+                float t = (float)i / (m - 1);
+                Vector3 interpolatedPoint = Vector3.Lerp(center - offset1 - offset2, center - offset1 + offset2, t);
+                vertices.Add(interpolatedPoint);
+            }
+
+            // 第四条边（从 center - offset1 + offset2 到 center + offset1 + offset2）
+            for (int i = 0; i < n; i++)
+            {
+                float t = (float)i / (n - 1);
+                Vector3 interpolatedPoint = Vector3.Lerp(center - offset1 + offset2, center + offset1 + offset2, t);
+                vertices.Add(interpolatedPoint);
+            }
+
+            return vertices;
+        }
+
+
+        /// <summary>
+        /// 正方体
+        /// </summary>
+        /// <param name="center"></param>
+        /// <param name="pointOnEdge"></param>
+        /// <returns></returns>
+        public static List<Vector3> Cube(Vector3 center, Vector3 pointOnEdge)
+        {
+            List<Vector3> vertices = new List<Vector3>();
+            // 计算从中心点指向棱上一点的向量（代表正方体一条棱的方向向量）
+            Vector3 edgeVector = pointOnEdge - center;
+
+            // 获取与 edgeVector 垂直的另外两个相互垂直的单位向量（通过向量叉乘）
+            // 先选择一个参考向量（这里选择 (0, 0, 1) 作为参考向量，只要不和 edgeVector 平行就行，若平行需要换参考向量）
+            Vector3 referenceVector = new Vector3(0, 0, 1);
+            if (Math.Abs(Vector3.Dot(edgeVector, referenceVector)) / (edgeVector.Length * referenceVector.Length) == 1)
+            {
+                referenceVector = new Vector3(0, 1, 0);
+            }
+
+            // 使用向量叉乘获取第一个垂直向量
+            Vector3 perpendicularVector1 = Vector3.Cross(edgeVector, referenceVector);
+            perpendicularVector1.Normalize();
+
+            // 使用向量叉乘获取第二个垂直向量（与 edgeVector 和第一个垂直向量都垂直）
+            Vector3 perpendicularVector2 = Vector3.Cross(edgeVector, perpendicularVector1);
+            perpendicularVector2.Normalize();
+
+            // 计算出正方体三条棱方向上的半边长向量（假设输入的 pointOnEdge 到中心的距离就是正方体的棱长）
+            Vector3 halfEdgeVector = edgeVector / 2;
+            Vector3 halfPerpendicularVector1 = perpendicularVector1 / 2;
+            Vector3 halfPerpendicularVector2 = perpendicularVector2 / 2;
+
+            // 通过中心和这三个半边长向量的不同组合来计算八个顶点坐标
+            vertices.Add(center + halfEdgeVector + halfPerpendicularVector1 + halfPerpendicularVector2);
+            vertices.Add(center + halfEdgeVector + halfPerpendicularVector1 - halfPerpendicularVector2);
+            vertices.Add(center + halfEdgeVector - halfPerpendicularVector1 - halfPerpendicularVector2);
+            vertices.Add(center + halfEdgeVector - halfPerpendicularVector1 + halfPerpendicularVector2);
+            vertices.Add(center - halfEdgeVector + halfPerpendicularVector1 + halfPerpendicularVector2);
+            vertices.Add(center - halfEdgeVector + halfPerpendicularVector1 - halfPerpendicularVector2);
+            vertices.Add(center - halfEdgeVector - halfPerpendicularVector1 - halfPerpendicularVector2);
+            vertices.Add(center - halfEdgeVector - halfPerpendicularVector1 + halfPerpendicularVector2);
+
+            return vertices;
+        }
+
+        public static List<Vector3> CubeList(Vector3 center, Vector3 pointOnEdge, int n)
+        {
+            List<Vector3> vertices = new List<Vector3>();
+
+            // 计算从中心点指向棱上一点的向量（代表正方体一条棱的方向向量）
+            Vector3 edgeVector = pointOnEdge - center;
+
+            // 获取与 edgeVector 垂直的另外两个相互垂直的单位向量（通过向量叉乘）
+            // 先选择一个参考向量（这里选择 (0, 0, 1) 作为参考向量，只要不和 edgeVector 平行就行，若平行需要换参考向量）
+            Vector3 referenceVector = new Vector3(0, 0, 1);
+            if (Math.Abs(Vector3.Dot(edgeVector, referenceVector)) / (edgeVector.Length * referenceVector.Length) == 1)
+            {
+                referenceVector = new Vector3(0, 1, 0);
+            }
+
+            // 使用向量叉乘获取第一个垂直向量
+            Vector3 perpendicularVector1 = Vector3.Cross(edgeVector, referenceVector);
+            perpendicularVector1.Normalize();
+
+            // 使用向量叉乘获取第二个垂直向量（与 edgeVector 和第一个垂直向量都垂直）
+            Vector3 perpendicularVector2 = Vector3.Cross(edgeVector, perpendicularVector1);
+            perpendicularVector2.Normalize();
+
+            // 计算出正方体三条棱方向上的半边长向量（假设输入的 pointOnEdge 到中心的距离就是正方体的棱长）
+            Vector3 halfEdgeVector = edgeVector / 2;
+            Vector3 halfPerpendicularVector1 = perpendicularVector1 / 2;
+            Vector3 halfPerpendicularVector2 = perpendicularVector2 / 2;
+
+            // 遍历正方体的六个面，生成每个面上的点
+            for (int face = 0; face < 6; face++)
+            {
+                // 根据面的不同，确定面上四条边对应的向量组合
+                Vector3[] edgeVectorsForFace = new Vector3[4];
+                switch (face)
+                {
+                    case 0: // 前面（以中心为参考，向外方向为正方向来看各向量组合情况）
+                        edgeVectorsForFace[0] = halfEdgeVector + halfPerpendicularVector1 + halfPerpendicularVector2;
+                        edgeVectorsForFace[1] = halfEdgeVector + halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[2] = halfEdgeVector - halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[3] = halfEdgeVector - halfPerpendicularVector1 + halfPerpendicularVector2;
+                        break;
+                    case 1: // 后面
+                        edgeVectorsForFace[0] = -halfEdgeVector + halfPerpendicularVector1 + halfPerpendicularVector2;
+                        edgeVectorsForFace[1] = -halfEdgeVector + halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[2] = -halfEdgeVector - halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[3] = -halfEdgeVector - halfPerpendicularVector1 + halfPerpendicularVector2;
+                        break;
+                    case 2: // 上面
+                        edgeVectorsForFace[0] = halfEdgeVector + halfPerpendicularVector1 + halfPerpendicularVector2;
+                        edgeVectorsForFace[1] = halfEdgeVector + halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[2] = -halfEdgeVector + halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[3] = -halfEdgeVector + halfPerpendicularVector1 + halfPerpendicularVector2;
+                        break;
+                    case 3: // 下面
+                        edgeVectorsForFace[0] = halfEdgeVector - halfPerpendicularVector1 + halfPerpendicularVector2;
+                        edgeVectorsForFace[1] = halfEdgeVector - halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[2] = -halfEdgeVector - halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[3] = -halfEdgeVector - halfPerpendicularVector1 + halfPerpendicularVector2;
+                        break;
+                    case 4: // 左面
+                        edgeVectorsForFace[0] = halfEdgeVector + halfPerpendicularVector1 + halfPerpendicularVector2;
+                        edgeVectorsForFace[1] = -halfEdgeVector + halfPerpendicularVector1 + halfPerpendicularVector2;
+                        edgeVectorsForFace[2] = -halfEdgeVector - halfPerpendicularVector1 + halfPerpendicularVector2;
+                        edgeVectorsForFace[3] = halfEdgeVector - halfPerpendicularVector1 + halfPerpendicularVector2;
+                        break;
+                    case 5: // 右面
+                        edgeVectorsForFace[0] = halfEdgeVector + halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[1] = -halfEdgeVector + halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[2] = -halfEdgeVector - halfPerpendicularVector1 - halfPerpendicularVector2;
+                        edgeVectorsForFace[3] = halfEdgeVector - halfPerpendicularVector1 - halfPerpendicularVector2;
+                        break;
+                }
+
+                // 对于当前面的四条边，分别通过插值生成多个点
+                for (int edge = 0; edge < 4; edge++)
+                {
+                    Vector3 start = edgeVectorsForFace[edge];
+                    Vector3 end = edgeVectorsForFace[(edge + 1) % 4];
+                    for (int i = 0; i < n; i++)
+                    {
+                        float t = (float)i / (n - 1);
+                        Vector3 interpolatedPoint = Vector3.Lerp(start, end, t);
+                        vertices.Add(center + interpolatedPoint);
+                    }
+                }
+            }
+
+            return vertices;
+        }
     }
 
     /// <summary>

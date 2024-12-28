@@ -38,19 +38,37 @@ namespace WinFormsApp.MyOpenTK
         private void InitializationParam()
         {
 
-            Color4 color = new Color4(0.7f, 0.2f, 0.5f, 1);
+
             //球
             // Vector3 center = new Vector3(0, 0, 0);
             //candyModel._vector = DataTool.Vector3ListToArray(ModelList.GenerateSpherePoints(center, 5, 100, 100));
 
             //圆
-            Vector3 vector3 = new Vector3(5, 0, 1);
-            Vector3 vector31 = new Vector3(7, 2, 2);
-            Vector3 vector32 = new Vector3(4, 5, 3);
-            CircleFromThreePoints circleFromThreePoints = new CircleFromThreePoints(vector3, vector31, vector32);
-            List<Vector3> TestData = ModelList.GenerateCirclePoints(circleFromThreePoints._center, circleFromThreePoints._radius, vector3, vector31, 100);
+            //Vector3 vector3 = new Vector3(5, 0, 1);
+            //Vector3 vector31 = new Vector3(7, 2, 2);
+            //Vector3 vector32 = new Vector3(4, 5, 3);
+            //CircleFromThreePoints circleFromThreePoints = new CircleFromThreePoints(vector3, vector31, vector32);
+            //List<Vector3> TestData = ModelList.GenerateCirclePoints(circleFromThreePoints._center, circleFromThreePoints._radius, vector3, vector31, 100);
+            //candyModel._vector = DataTool.Vector3ListToArray(TestData);
+
+            //矩形
+            //Vector3 vector3 = new Vector3(0, 0, 0);
+            //Vector3 vector31 = new Vector3(1, 1, 1);
+            //List<Vector3> TestData = ModelList.RectangleList(vector3, vector31,100,100);
+            //candyModel._vector = DataTool.Vector3ListToArray(TestData);
+
+            //正方体
+            Vector3 vector3 = new Vector3(0, 0, 0);
+            Vector3 vector31 = new Vector3(1, 1, 1);
+            List<Vector3> TestData = ModelList.CubeList(vector3, vector31, 100);
             candyModel._vector = DataTool.Vector3ListToArray(TestData);
 
+
+
+
+            //
+            GL.PointSize(2.5f);
+            Color4 color = new Color4(0.7f, 0.2f, 0.5f, 1);
             candyModel._primitiveType = PrimitiveType.Points;
             candyModel._color = color;
             Render();
@@ -80,7 +98,7 @@ namespace WinFormsApp.MyOpenTK
             GL.BindVertexArray(_mainVAO);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
             GL.EnableVertexAttribArray(0);
-            GL.DrawArrays(spaceModel._primitiveType, 0, spaceModel._vector.Length);
+            GL.DrawArrays(spaceModel._primitiveType, 0, spaceModel._vector.Length/3);
         }
 
         #region    视图
@@ -168,9 +186,9 @@ namespace WinFormsApp.MyOpenTK
         private Vector2 _lastPos;
         private const float _cameraSpeed = 1.5f;
         private const float _sensitivity = 0.05f;
-        private float _rotatefactor = 0.1f;
+        private float _rotatefactor = 0.5f;
         private float _maxMouseMoveDistance = 40f;
-        private float scale = 1;
+        private float scale = 5;
         private float _scalingPositionFactor = 15f;
         private bool _mouseButtonDown = false;
         private Quaternion rotationQuaternion;
