@@ -393,6 +393,182 @@ namespace WinFormsApp.MyOpenTK.DLL
             return vertices;
         }
 
+       
+
+        /// <summary>
+        /// 立方体
+        /// </summary>
+        /// <param name="center">
+        /// 表示立方体在三维空间中的中心坐标，类型为Vector3，以此坐标为基准来确定立方体各个顶点的相对位置。
+        /// </param>
+        /// <param name="sideLength">
+        /// 表示立方体的边长，为float类型，用于确定立方体各个顶点相对于中心坐标的偏移量，从而计算出具体顶点坐标。
+        /// </param>
+        /// <returns>
+        /// 返回一个List<Vector3>类型的列表，其中按顺序存放了依据输入参数确定的立方体的8个顶点坐标。
+        /// </returns>
+        public static List<Vector3> Cube(Vector3 center, float sideLength)
+        {
+            List<Vector3> vertices = new List<Vector3>();
+            float halfSideLength = sideLength / 2;
+
+            // 前下左顶点
+            vertices.Add(center + new Vector3(-halfSideLength, -halfSideLength, -halfSideLength));
+            // 前下右顶点
+            vertices.Add(center + new Vector3(halfSideLength, -halfSideLength, -halfSideLength));
+            // 前上右顶点
+            vertices.Add(center + new Vector3(halfSideLength, halfSideLength, -halfSideLength));
+            // 前上左顶点
+            vertices.Add(center + new Vector3(-halfSideLength, halfSideLength, -halfSideLength));
+            // 后下左顶点
+            vertices.Add(center + new Vector3(-halfSideLength, -halfSideLength, halfSideLength));
+            // 后下右顶点
+            vertices.Add(center + new Vector3(halfSideLength, -halfSideLength, halfSideLength));
+            // 后上右顶点
+            vertices.Add(center + new Vector3(halfSideLength, halfSideLength, halfSideLength));
+            // 后上左顶点
+            vertices.Add(center + new Vector3(-halfSideLength, halfSideLength, halfSideLength));
+
+            return vertices;
+        }
+
+        /// <summary>
+        ///立方体
+        /// 通过传入立方体的中心坐标、边长以及每条边上的点数来唯一确定一个细分后的立方体（包含每条边细分后的顶点）。
+        /// </summary>
+        /// <param name="center">
+        /// 表示立方体在三维空间中的中心坐标，类型为Vector3，以此坐标为基准来确定立方体各个顶点的相对位置。
+        /// </param>
+        /// <param name="sideLength">
+        /// 表示立方体的边长，为float类型，用于确定立方体各个顶点相对于中心坐标的偏移量，从而计算出具体顶点坐标。
+        /// </param>
+        /// <param name="pointsOnEdge">
+        /// 表示立方体每条边上均匀分布的点数（包含顶点），为float类型，需大于等于2，用于控制每条边细分的程度，以获取更详细的顶点坐标信息。
+        /// </param>
+        /// <returns>
+        /// 返回一个List<Vector3>类型的列表，其中按顺序存放了依据输入参数确定的立方体细分后所有顶点的坐标。
+        /// </returns>
+        public static List<Vector3> Cube(Vector3 center, float sideLength, float pointsOnEdge)
+        {
+            List<Vector3> vertices = new List<Vector3>();
+            float halfSideLength = sideLength / 2;
+            float stepLength = sideLength / (pointsOnEdge - 1);  // 每条边上相邻两点间的距离（步长）
+
+            // 遍历三条轴向（x、y、z）的正负方向来添加所有细分后的顶点坐标
+            for (float x = -halfSideLength; x <= halfSideLength; x += stepLength)
+            {
+                for (float y = -halfSideLength; y <= halfSideLength; y += stepLength)
+                {
+                    for (float z = -halfSideLength; z <= halfSideLength; z += stepLength)
+                    {
+                        vertices.Add(center + new Vector3(x, y, z));
+                    }
+                }
+            }
+
+            return vertices;
+        }
+
+
+        /// <summary>
+        /// 长方体
+        /// </summary>
+        /// <param name="center">
+        /// 表示长方体在三维空间中的中心坐标，类型为Vector3，以此坐标为基准来确定长方体各个顶点的相对位置。
+        /// </param>
+        /// <param name="length">
+        /// 表示长方体的长度（沿x轴方向的尺寸），为float类型，用于确定长方体在对应维度上顶点相对于中心坐标的偏移量，从而计算出具体顶点坐标。
+        /// </param>
+        /// <param name="width">
+        /// 表示长方体的宽度（沿y轴方向的尺寸），为float类型，同样用于确定长方体在对应维度上顶点相对于中心坐标的偏移量，以计算顶点坐标。
+        /// </param>
+        /// <param name="height">
+        /// 表示长方体的高度（沿z轴方向的尺寸），为float类型，也是用于确定长方体在对应维度上顶点相对于中心坐标的偏移量来得出顶点坐标。
+        /// </param>
+        /// <returns>
+        /// 返回一个List<Vector3>类型的列表，其中按顺序存放了依据输入参数确定的长方体的8个顶点坐标。
+        /// </returns>
+        public static List<Vector3> Cuboid(Vector3 center, float length, float width, float height)
+        {
+            List<Vector3> vertices = new List<Vector3>();
+            float halfLength = length / 2;
+            float halfWidth = width / 2;
+            float halfHeight = height / 2;
+
+            // 前下左顶点
+            vertices.Add(center + new Vector3(-halfLength, -halfWidth, -halfHeight));
+            // 前下右顶点
+            vertices.Add(center + new Vector3(halfLength, -halfWidth, -halfHeight));
+            // 前上右顶点
+            vertices.Add(center + new Vector3(halfLength, halfWidth, -halfHeight));
+            // 前上左顶点
+            vertices.Add(center + new Vector3(-halfLength, halfWidth, -halfHeight));
+            // 后下左顶点
+            vertices.Add(center + new Vector3(-halfLength, -halfWidth, halfHeight));
+            // 后下右顶点
+            vertices.Add(center + new Vector3(halfLength, -halfWidth, halfHeight));
+            // 后上右顶点
+            vertices.Add(center + new Vector3(halfLength, halfWidth, halfHeight));
+            // 后上左顶点
+            vertices.Add(center + new Vector3(-halfLength, halfWidth, halfHeight));
+
+            return vertices;
+        }
+
+        /// <summary>
+        ///长方体
+        /// </summary>
+        /// <param name="center">
+        /// 表示长方体在三维空间中的中心坐标，类型为Vector3，以此坐标为基准来确定长方体各个顶点的相对位置。
+        /// </param>
+        /// <param name="length">
+        /// 表示长方体的长度（沿x轴方向的尺寸），为float类型，用于确定长方体在对应维度上顶点相对于中心坐标的偏移量，从而计算出具体顶点坐标。
+        /// </param>
+        /// <param name="width">
+        /// 表示长方体的宽度（沿y轴方向的尺寸），为float类型，同样用于确定长方体在对应维度上顶点相对于中心坐标的偏移量，以计算顶点坐标。
+        /// </param>
+        /// <param name="height">
+        /// 表示长方体的高度（沿z轴方向的尺寸），为float类型，也是用于确定长方体在对应维度上顶点相对于中心坐标的偏移量来得出顶点坐标。
+        /// </param>
+        /// <param name="pointsOnLengthEdge">
+        /// 表示长方体长度方向（x轴方向）每条边上均匀分布的点数（包含顶点），为float类型，需大于等于2，用于控制该方向边细分的程度，以获取更详细的顶点坐标信息。
+        /// </param>
+        /// <param name="pointsOnWidthEdge">
+        /// 表示长方体宽度方向（y轴方向）每条边上均匀分布的点数（包含顶点），为float类型，需大于等于2，用于控制该方向边细分的程度，以获取更详细的顶点坐标信息。
+        /// </param>
+        /// <param name="pointsOnHeightEdge">
+        /// 表示长方体高度方向（z轴方向）每条边上均匀分布的点数（包含顶点），为float类型，需大于等于2，用于控制该方向边细分的程度，以获取更详细的顶点坐标信息。
+        /// </param>
+        /// <returns>
+        /// 返回一个List<Vector3>类型的列表，其中按顺序存放了依据输入参数确定的长方体细分后所有顶点的坐标。
+        /// </returns>
+        public static List<Vector3> Cuboid(Vector3 center, float length, float width, float height,
+            float pointsOnLengthEdge, float pointsOnWidthEdge, float pointsOnHeightEdge)
+        {
+            List<Vector3> vertices = new List<Vector3>();
+            float halfLength = length / 2;
+            float halfWidth = width / 2;
+            float halfHeight = height / 2;
+
+            float stepLengthX = length / (pointsOnLengthEdge - 1);  // x轴方向每条边上相邻两点间的距离（步长）
+            float stepLengthY = width / (pointsOnWidthEdge - 1);   // y轴方向每条边上相邻两点间的距离（步长）
+            float stepLengthZ = height / (pointsOnHeightEdge - 1);  // z轴方向每条边上相邻两点间的距离（步长）
+
+            // 遍历长度、宽度、高度方向上的点数范围来添加所有细分后的顶点坐标
+            for (float x = -halfLength; x <= halfLength; x += stepLengthX)
+            {
+                for (float y = -halfWidth; y <= halfWidth; y += stepLengthY)
+                {
+                    for (float z = -halfHeight; z <= halfHeight; z += stepLengthZ)
+                    {
+                        vertices.Add(center + new Vector3(x, y, z));
+                    }
+                }
+            }
+
+            return vertices;
+        }
+
         /// <summary>
         /// 扇形
         /// </summary>
@@ -451,87 +627,42 @@ namespace WinFormsApp.MyOpenTK.DLL
         }
 
         /// <summary>
-        /// 立方体
+        ///圆锥（包含母线细分后的顶点）。
         /// </summary>
-        /// <param name="center">
-        /// 表示立方体在三维空间中的中心坐标，类型为Vector3，以此坐标为基准来确定立方体各个顶点的相对位置。
+        /// <param name="bottomCenter">
+        /// 表示圆锥底面在三维空间中的圆心坐标，类型为Vector3，以此坐标为基准来确定圆锥底面各顶点以及整个圆锥在空间中的位置。
         /// </param>
-        /// <param name="sideLength">
-        /// 表示立方体的边长，为float类型，用于确定立方体各个顶点相对于中心坐标的偏移量，从而计算出具体顶点坐标。
+        /// <param name="height">
+        /// 表示圆锥的高度，为float类型，用于确定圆锥顶点在垂直方向上相对于底面圆心的位置。
+        /// </param>
+        /// <param name="radius">
+        /// 表示圆锥底面的半径，为float类型，用于确定圆锥底面圆周上各顶点相对于底面圆心的偏移量，从而计算出底面各顶点坐标。
+        /// </param>
+        /// <param name="segments">
+        /// 表示圆锥母线的细分点数（包含底面圆周上的顶点和圆锥顶点），为float类型，需大于等于2，用于控制母线细分的程度，以获取更详细的顶点坐标信息。
         /// </param>
         /// <returns>
-        /// 返回一个List<Vector3>类型的列表，其中按顺序存放了依据输入参数确定的立方体的8个顶点坐标。
+        /// 返回一个List<Vector3>类型的列表，其中按顺序存放了依据输入参数确定的圆锥的所有顶点坐标。
         /// </returns>
-        public static List<Vector3> Cube(Vector3 center, float sideLength)
+        public static List<Vector3> Cone(Vector3 bottomCenter, float height, float radius, float segments)
         {
             List<Vector3> vertices = new List<Vector3>();
-            float halfSideLength = sideLength / 2;
+            float step = (float)(2 * Math.PI / (segments - 1));  // 底面圆周上相邻两点对应的角度步长
 
-            // 前下左顶点
-            vertices.Add(center + new Vector3(-halfSideLength, -halfSideLength, -halfSideLength));
-            // 前下右顶点
-            vertices.Add(center + new Vector3(halfSideLength, -halfSideLength, -halfSideLength));
-            // 前上右顶点
-            vertices.Add(center + new Vector3(halfSideLength, halfSideLength, -halfSideLength));
-            // 前上左顶点
-            vertices.Add(center + new Vector3(-halfSideLength, halfSideLength, -halfSideLength));
-            // 后下左顶点
-            vertices.Add(center + new Vector3(-halfSideLength, -halfSideLength, halfSideLength));
-            // 后下右顶点
-            vertices.Add(center + new Vector3(halfSideLength, -halfSideLength, halfSideLength));
-            // 后上右顶点
-            vertices.Add(center + new Vector3(halfSideLength, halfSideLength, halfSideLength));
-            // 后上左顶点
-            vertices.Add(center + new Vector3(-halfSideLength, halfSideLength, halfSideLength));
+            // 添加圆锥顶点坐标
+            vertices.Add(bottomCenter + new Vector3(0, height, 0));
 
-            return vertices;
-        }
-
-        /// <summary>
-        /// 该方法用于确定三维空间中一个立方体的各个顶点坐标，并返回包含这些顶点坐标的List<Vector3>。
-        /// 通过传入立方体的中心坐标、边长以及每条边上的点数来唯一确定一个细分后的立方体（包含每条边细分后的顶点）。
-        /// </summary>
-        /// <param name="center">
-        /// 表示立方体在三维空间中的中心坐标，类型为Vector3，以此坐标为基准来确定立方体各个顶点的相对位置。
-        /// </param>
-        /// <param name="sideLength">
-        /// 表示立方体的边长，为float类型，用于确定立方体各个顶点相对于中心坐标的偏移量，从而计算出具体顶点坐标。
-        /// </param>
-        /// <param name="pointsOnEdge">
-        /// 表示立方体每条边上均匀分布的点数（包含顶点），为float类型，需大于等于2，用于控制每条边细分的程度，以获取更详细的顶点坐标信息。
-        /// </param>
-        /// <returns>
-        /// 返回一个List<Vector3>类型的列表，其中按顺序存放了依据输入参数确定的立方体细分后所有顶点的坐标。
-        /// </returns>
-        public static List<Vector3> Cube(Vector3 center, float sideLength, float pointsOnEdge)
-        {
-            List<Vector3> vertices = new List<Vector3>();
-            float halfSideLength = sideLength / 2;
-            float stepLength = sideLength / (pointsOnEdge - 1);  // 每条边上相邻两点间的距离（步长）
-
-            // 遍历三条轴向（x、y、z）的正负方向来添加所有细分后的顶点坐标
-            for (float x = -halfSideLength; x <= halfSideLength; x += stepLength)
+            // 遍历计算并添加底面圆周上各顶点坐标
+            for (float angle = 0; angle < 2 * Math.PI; angle += step)
             {
-                for (float y = -halfSideLength; y <= halfSideLength; y += stepLength)
-                {
-                    for (float z = -halfSideLength; z <= halfSideLength; z += stepLength)
-                    {
-                        vertices.Add(center + new Vector3(x, y, z));
-                    }
-                }
+                float x = (float)(radius * Math.Cos(angle));
+                float y = 0;
+                float z = (float)(radius * Math.Sin(angle));
+                vertices.Add(bottomCenter + new Vector3(x, y, z));
             }
 
             return vertices;
         }
-
-
-
-
-
-
-
-
-
 
 
 
