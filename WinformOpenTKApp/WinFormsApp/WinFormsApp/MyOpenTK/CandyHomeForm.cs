@@ -51,23 +51,20 @@ namespace WinFormsApp.MyOpenTK
             //List<Vector3> TestData = ModelList.GenerateCirclePoints(circleFromThreePoints._center, circleFromThreePoints._radius, vector3, vector31, 100);
             //candyModel._vector = DataTool.Vector3ListToArray(TestData);
 
-            //矩形
-            //Vector3 vector3 = new Vector3(0, 0, 0);
-            //Vector3 vector31 = new Vector3(1, 1, 1);
-            //List<Vector3> TestData = ModelList.RectangleList(vector3, vector31,100,100);
-            //candyModel._vector = DataTool.Vector3ListToArray(TestData);
+            
 
-            //正方体
+            //正方形
             Vector3 vector3 = new Vector3(0, 0, 0);
-            Vector3 vector31 = new Vector3(1, 1, 1);
-            List<Vector3> TestData = ModelList.CubeList(vector3, vector31, 100);
+            Vector3 vector31 = new Vector3(5, 5, 5);
+            Vector3 vector32 = new Vector3(-2, 1, 2);
+            List<Vector3> TestData = ModelList.Cube(vector3,3,10);
             candyModel._vector = DataTool.Vector3ListToArray(TestData);
 
 
 
 
             //
-            GL.PointSize(2.5f);
+            GL.PointSize(1.5f);
             Color4 color = new Color4(0.7f, 0.2f, 0.5f, 1);
             candyModel._primitiveType = PrimitiveType.Points;
             candyModel._color = color;
