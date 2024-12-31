@@ -163,7 +163,6 @@ namespace WinFormsApp.MyOpenCV.DLL
             startPoint = new Point(50, 50);
             endPoint = new Point(300, 300);
             // 定义线条颜色（这里是白色）
-            mCvScalar = new MCvScalar(255, 255, 255, 0);
             // 定义线条宽度
             //lineWidth = 2;
             // 在图像上绘制线条
@@ -178,7 +177,7 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <param name="borderWidth"></param>
-        public static void Rectangle(int leftTopX = 50, int leftTopY = 50, int width = 200, int height = 100, int borderWidth = 2)
+        public static void Rectangle(MCvScalar mCvScalar,int leftTopX = 50, int leftTopY = 50, int width = 200, int height = 100, int borderWidth = 2)
         {
             // 加载图像
             Image<Bgr, byte> image = new Image<Bgr, byte>(400, 400);
@@ -190,7 +189,6 @@ namespace WinFormsApp.MyOpenCV.DLL
             //height = 100;
             // 定义矩形颜色（这里是黄色）
             //Bgr rectColor = new Bgr(0, 255, 0);
-            MCvScalar mCvScalar = new MCvScalar(0, 255, 255, 0);
             // 定义矩形边框宽度
             //orderWidth = 2;
             Rectangle rectangle = new Rectangle(leftTopX, leftTopY, width, height);
@@ -214,7 +212,6 @@ namespace WinFormsApp.MyOpenCV.DLL
             // radius = 80;
             // 定义圆的颜色（这里是红色）
             Bgr circleColor = new Bgr(255, 0, 0);
-            mCvScalar = new MCvScalar(0, 255, 255, 0);
             // 定义圆的线条宽度
             int circleWidth = 2;
             // 在图像上绘制圆
@@ -227,7 +224,7 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// <param name="ellipseCenter"></param>
         /// <param name="majorAxis"></param>
         /// <param name="minorAxis"></param>
-        public static void Ellipse(Point ellipseCenter, int majorAxis = 120, int minorAxis = 80)
+        public static void Ellipse(Point ellipseCenter, MCvScalar mCvScalar, int majorAxis = 120, int minorAxis = 80)
         {
             // 加载图像
             Image<Bgr, byte> image = new Image<Bgr, byte>(400, 400);
@@ -243,7 +240,6 @@ namespace WinFormsApp.MyOpenCV.DLL
             double endAngle = 360;
             // 定义椭圆颜色（这里是黄色）
             Bgr ellipseColor = new Bgr(255, 255, 0);
-            MCvScalar mCvScalar = new MCvScalar(0, 255, 255, 0);
             // 定义椭圆线条宽度
             int ellipseWidth = 2;
             // 在图像上绘制椭圆
@@ -261,16 +257,15 @@ namespace WinFormsApp.MyOpenCV.DLL
             // 加载图像或创建一个空白图像
             Image<Bgr, byte> image = new Image<Bgr, byte>(400, 400);
             // 定义多边形的顶点坐标数组
-            points = new Point[]
-            {
-              new Point(50, 50),
-              new Point(150, 50),
-              new Point(200, 150),
-              new Point(100, 200)
-            };
+            //points = new Point[]
+            //{
+            //  new Point(50, 50),
+            //  new Point(150, 50),
+            //  new Point(200, 150),
+            //  new Point(100, 200)
+            //};
             // 定义多边形颜色（这里是橙色）
             Bgr polygonColor = new Bgr(255, 165, 0);
-            mCvScalar = new MCvScalar(0, 255, 255, 0);
             // 定义多边形线条宽度
             borderWidth = 2;
             // 在图像上绘制多边形
@@ -292,8 +287,7 @@ namespace WinFormsApp.MyOpenCV.DLL
             Point textLocation = new Point(50, 50);
             // 定义字体（这里使用Arial字体）
             Font font = new Font("Arial", 12, FontStyle.Regular);
-            // 定义文本颜色（这里是白色）
-            mCvScalar = new MCvScalar(0, 255, 255, 0);
+
             // 在图像上添加文本
             CvInvoke.PutText(image, text, textLocation, FontFace.HersheySimplex, 0.5, mCvScalar, 2);
             // 将带有文本的图像保存到文件
@@ -516,15 +510,15 @@ namespace WinFormsApp.MyOpenCV.DLL
         {
             // 加载原始图像和掩码图像
             Image<Bgr, byte> originalImage = new Image<Bgr, byte>(path1);
-            Image<Gray, byte> maskImage = new Image<Gray, byte>(path2);
+            Image<Bgr, byte> originalImage2 = new Image<Bgr, byte>(path2);
             // 确保两个图像尺寸相同
-            if (originalImage.Size == maskImage.Size)
+            if (originalImage.Size == originalImage2.Size)
             {
                 Mat resultMat = new Mat();
-                CvInvoke.BitwiseAnd(originalImage, originalImage, resultMat, maskImage);
-                // CvInvoke.BitwiseOr(originalImage, originalImage, resultMat, maskImage);
-                // CvInvoke.BitwiseXor(originalImage, originalImage, resultMat, maskImage);
-                // CvInvoke.BitwiseNot(originalImage, resultMat);
+                CvInvoke.BitwiseAnd(originalImage, originalImage2, resultMat);
+                CvInvoke.BitwiseOr(originalImage, originalImage2, resultMat);
+                CvInvoke.BitwiseXor(originalImage, originalImage2, resultMat);
+                CvInvoke.BitwiseNot(originalImage, resultMat);
                 Image<Bgr, byte> resultImage = resultMat.ToImage<Bgr, byte>();
                 // 可以对结果图像进行操作，如显示图像
                 ShowImage(resultImage);
