@@ -4,6 +4,7 @@ using Emgu.CV.CvEnum;
 using OpenTK.Mathematics;
 using Emgu.CV.Util;
 using Emgu.CV.UI;
+using Mat = Emgu.CV.Mat;
 
 namespace WinFormsApp.MyOpenCV.DLL
 {
@@ -16,7 +17,17 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// </summary>
         /// <param name="path"></param>
         /// <param name="outpath"></param>
-        public static void ShowImage(string path, string outpath = "mysave.png")
+        public static void ShowImage(string path)
+        {
+            // 读取图像
+            Mat imageMat = CvInvoke.Imread(path, ImreadModes.Unchanged);
+
+            // 加载图像
+            Image<Bgr, byte> img = new Image<Bgr, byte>(path);
+            // 创建一个ImageViewer对象来显示图像
+            ShowImage(img);
+        }
+        public static void SaveImage(string path, string outpath = "mysave.png")
         {
             // 读取图像
             Mat imageMat = CvInvoke.Imread(path, ImreadModes.Unchanged);
@@ -36,6 +47,7 @@ namespace WinFormsApp.MyOpenCV.DLL
             img.Save(outpath);
 
         }
+
         /// <summary>
         /// 播放视频
         /// </summary>
@@ -432,17 +444,16 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// 添加边框
         /// </summary>
         /// <param name="path"></param>
-        public static void AddBorder(string path)
+        public static void AddBorder(string path, MCvScalar mCvScalar,int border)
         {
             // 加载图像
             Image<Bgr, byte> image = new Image<Bgr, byte>(path);
             // 定义边框（填充）的宽度（这里上下左右都填充10像素）
-            int topBorder = 10;
-            int bottomBorder = 10;
-            int leftBorder = 10;
-            int rightBorder = 10;
-            // 定义文本颜色（这里是黄色）
-            MCvScalar mCvScalar = new MCvScalar(0, 255, 255, 0);
+            int topBorder = border;
+            int bottomBorder = border;
+            int leftBorder = border;
+            int rightBorder = border;
+           
             // 使用CopyMakeBorder函数添加边框（填充）
             Mat paddedImageMat = new Mat();
             CvInvoke.CopyMakeBorder(image, paddedImageMat, topBorder, bottomBorder, leftBorder, rightBorder, BorderType.Constant, mCvScalar);
@@ -450,6 +461,22 @@ namespace WinFormsApp.MyOpenCV.DLL
             // 可以对添加边框后的图像进行操作，如显示图像
             ShowImage(paddedImage);
         }
+        /// <summary>
+        /// 更改颜色空间
+        /// </summary>
+        /// <param name="path"></param>
+        public static void ChangeColorSpace(string path)
+        {
+            // 加载RGB图像
+            Image<Bgr, byte> rgbImage = new Image<Bgr, byte>(path);
+            // 创建用于存储HSV图像的对象
+            Image<Hsv, byte> hsvImage = new Image<Hsv, byte>(rgbImage.Size);
+            // 进行颜色空间转换（RGB to HSV）
+            CvInvoke.CvtColor(rgbImage, hsvImage, ColorConversion.Bgr2Hsv);
+            // 可以对HSV图像进行操作，如显示图像
+            ShowImage(hsvImage);
+        }
+
         /// <summary>
         /// 图片加法
         /// </summary>
@@ -501,12 +528,20 @@ namespace WinFormsApp.MyOpenCV.DLL
                 Console.WriteLine("两个图像尺寸不同，无法进行融合运算。");
             }
         }
+
+        public enum CandyBitwiseOperation
+        {
+            And,
+            Or,
+            Xor,
+            Not
+        }
         /// <summary>
         /// 图像按位运算
         /// </summary>
         /// <param name="path1"></param>
         /// <param name="path2"></param>
-        public static void BitwiseOperation(string path1, string path2)
+        public static void BitwiseOperation(string path1, string path2, CandyBitwiseOperation bitwiseOperation)
         {
             // 加载原始图像和掩码图像
             Image<Bgr, byte> originalImage = new Image<Bgr, byte>(path1);
@@ -515,10 +550,21 @@ namespace WinFormsApp.MyOpenCV.DLL
             if (originalImage.Size == originalImage2.Size)
             {
                 Mat resultMat = new Mat();
-                CvInvoke.BitwiseAnd(originalImage, originalImage2, resultMat);
-                CvInvoke.BitwiseOr(originalImage, originalImage2, resultMat);
-                CvInvoke.BitwiseXor(originalImage, originalImage2, resultMat);
-                CvInvoke.BitwiseNot(originalImage, resultMat);
+                switch (bitwiseOperation)
+                {
+                    case CandyBitwiseOperation.And:
+                        CvInvoke.BitwiseAnd(originalImage, originalImage2, resultMat);
+                        break;
+                    case CandyBitwiseOperation.Or:
+                    CvInvoke.BitwiseOr(originalImage, originalImage2, resultMat);
+                    break;
+                    case CandyBitwiseOperation.Xor:
+                        CvInvoke.BitwiseXor(originalImage, originalImage2, resultMat);
+                        break;
+                    case CandyBitwiseOperation.Not:
+                        CvInvoke.BitwiseNot(originalImage, resultMat);
+                        break;
+                }
                 Image<Bgr, byte> resultImage = resultMat.ToImage<Bgr, byte>();
                 // 可以对结果图像进行操作，如显示图像
                 ShowImage(resultImage);
@@ -530,21 +576,7 @@ namespace WinFormsApp.MyOpenCV.DLL
 
         }
 
-        /// <summary>
-        /// 更改颜色空间
-        /// </summary>
-        /// <param name="path"></param>
-        public static void ChangeColorSpace(string path)
-        {
-            // 加载RGB图像
-            Image<Bgr, byte> rgbImage = new Image<Bgr, byte>(path);
-            // 创建用于存储HSV图像的对象
-            Image<Hsv, byte> hsvImage = new Image<Hsv, byte>(rgbImage.Size);
-            // 进行颜色空间转换（RGB to HSV）
-            CvInvoke.CvtColor(rgbImage, hsvImage, ColorConversion.Bgr2Hsv);
-            // 可以对HSV图像进行操作，如显示图像
-            ShowImage(hsvImage);           
-        }
+       
         /// <summary>
         /// 等比缩放
         /// </summary>
@@ -590,13 +622,13 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// 平移
         /// </summary>
         /// <param name="path"></param>
-        public static void Translation(string path)
+        public static void Translation(string path, float translateX = 50, float translateY = 80)
         {
             // 加载图像
             Image<Bgr, byte> image = new Image<Bgr, byte>(path);
             // 定义平移量（在x方向平移100像素，在y方向平移50像素）
-            float translateX = 10;
-            float translateY = 15;
+            //float translateX = 10;
+            //float translateY = 15;
             // 创建平移变换矩阵
             Mat translationMatrix = new Mat(2, 3, DepthType.Cv32F, 1);
             // 逐个设置矩阵元素
@@ -615,7 +647,7 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// </summary>
         /// <param name="path"></param>
         /// <param name="angle"></param>
-        public static void Rotate(string path, double angle = 30)
+        public static void Rotate(string path, double angle = 45)
         {
             // 加载图像
             Image<Bgr, byte> image = new Image<Bgr, byte>(path);
@@ -637,34 +669,34 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// 仿射变换
         /// </summary>
         /// <param name="path"></param>
-        public static void AffineTransformation(string path)
+        public static void AffineTransformation(string path,Mat mat)
         {
             // 加载图像
             Image<Bgr, byte> image = new Image<Bgr, byte>(path);
             // 定义一个简单的平移变换矩阵（向右平移50像素，向下平移30像素）
-            Mat translationMatrix = new Mat(2, 3, DepthType.Cv32F, 1);
-            //平移
-            float translationX = 5;
-            float translationY = 3;
-            float[] translationArray = { 1, 0, translationX,
-                                       0, 1, translationY };
-            float scaleX = 0.5f;
-            float scaleY = 0.5f;
-            // 缩放
-            float[] translationArray2 = { scaleX, 0, 0,
-                                            0, scaleY, 0 };
-            //旋转
-            // 定义旋转角度（这里是逆时针旋转30度，将角度转换为弧度）
-            float angle = (float)(30 * Math.PI / 180);
-            float cosValue = (float)Math.Cos(angle);
-            float sinValue = (float)Math.Sin(angle);
-            float[] translationArray3 = { cosValue, -sinValue, 0,
-                                           sinValue, cosValue, 0 };
-            translationMatrix.SetTo(translationArray);
+            //Mat translationMatrix = new Mat(2, 3, DepthType.Cv32F, 1);
+            ////平移
+            //float translationX = 5;
+            //float translationY = 3;
+            //float[] translationArray = { 1, 0, translationX,
+            //                           0, 1, translationY };
+            //float scaleX = 0.5f;
+            //float scaleY = 0.5f;
+            //// 缩放
+            //float[] translationArray2 = { scaleX, 0, 0,
+            //                                0, scaleY, 0 };
+            ////旋转
+            //// 定义旋转角度（这里是逆时针旋转30度，将角度转换为弧度）
+            //float angle = (float)(30 * Math.PI / 180);
+            //float cosValue = (float)Math.Cos(angle);
+            //float sinValue = (float)Math.Sin(angle);
+            //float[] translationArray3 = { cosValue, -sinValue, 0,
+            //                               sinValue, cosValue, 0 };
+            //mat.SetTo(translationArray);
             // 创建用于存储变换后图像的对象
             Image<Bgr, byte> transformedImage = new Image<Bgr, byte>(image.Size);
             // 应用仿射变换
-            CvInvoke.WarpAffine(image, transformedImage, translationMatrix, image.Size);
+            CvInvoke.WarpAffine(image, transformedImage, mat, image.Size);
             // 可以对变换后的图像进行操作，如显示图像
             ShowImage(transformedImage);           
         }
@@ -705,12 +737,12 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// 简单阀值
         /// </summary>
         /// <param name="path"></param>
-        public static void SetThreshold(string path)
+        public static void SimpleThreshold(string path, double thresholdValue = 128)
         {
             // 加载灰度图像
             Image<Gray, byte> grayImage = new Image<Gray, byte>(path);
             // 进行二进制阈值处理
-            double thresholdValue = 128;
+            //double thresholdValue = 128;
             Mat binaryImageMat = new Mat();
             CvInvoke.Threshold(grayImage, binaryImageMat, thresholdValue, 255, ThresholdType.Binary);
             Image<Gray, byte> binaryImage = binaryImageMat.ToImage<Gray, byte>();
@@ -762,10 +794,10 @@ namespace WinFormsApp.MyOpenCV.DLL
 
 
         /// <summary>
-        /// 2D卷积 平均滤波器
+        /// 2D卷积-- 平均滤波器
         /// </summary>
         /// <param name="path"></param>
-        public static void Convolution2D(string path)
+        public static void AverageBlur(string path)
         {
             // 加载图像
             Image<Bgr, byte> image = new Image<Bgr, byte>(path);
@@ -1100,16 +1132,16 @@ namespace WinFormsApp.MyOpenCV.DLL
         /// Canny边缘检测
         /// </summary>
         /// <param name="path"></param>
-        public static void Canny(string path)
+        public static void Canny(string path, double thresholdL = 50, double thresholdH = 150)
         {
             // 加载图像，若为彩色图像则转换为灰度图
             Image<Bgr, byte> bgrImage = new Image<Bgr, byte>(path);
             Image<Gray, byte> grayImage = bgrImage.Convert<Gray, byte>();
             // 定义Canny边缘检测的参数
-            double threshold1 = 50;  // 低阈值
-            double threshold2 = 150; // 高阈值
+            //double thresholdL = 50;  // 低阈值
+            //double thresholdH = 150; // 高阈值
             Mat cannyEdgesMat = new Mat();
-            CvInvoke.Canny(grayImage, cannyEdgesMat, threshold1, threshold2);
+            CvInvoke.Canny(grayImage, cannyEdgesMat, thresholdL, thresholdH);
             Image<Gray, byte> cannyEdgesImage = cannyEdgesMat.ToImage<Gray, byte>();
             ShowImage(cannyEdgesImage);            
         }
@@ -1348,6 +1380,7 @@ namespace WinFormsApp.MyOpenCV.DLL
                 CvInvoke.Rectangle(contourImage, boundingRect, borderValue, 2);
                 ShowImage(contourImage);
             }
+
         }
         /// <summary>
         /// 旋转边界矩形
