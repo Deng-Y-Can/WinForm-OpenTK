@@ -444,11 +444,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\Common.csproj",
+      "projectUniqueName": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\Common.csproj",
       "projectName": "Common",
-      "projectPath": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\Common.csproj",
+      "projectPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\Common.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\obj\\",
+      "outputPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\vs\\NuGetPackages",

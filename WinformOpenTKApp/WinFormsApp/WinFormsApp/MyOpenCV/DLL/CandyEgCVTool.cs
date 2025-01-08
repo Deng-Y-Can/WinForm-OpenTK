@@ -1459,6 +1459,7 @@ namespace WinFormsApp.MyOpenCV.DLL
                 ShowImage(contourImage);
             }
         }
+        // ********************************************************************************
         /// <summary>
         /// 拟合直线   有异常  TODO
         /// </summary>
@@ -1486,7 +1487,327 @@ namespace WinFormsApp.MyOpenCV.DLL
             }
 
         }
-       
+
+        /// <summary>
+        /// 拟合一个椭圆
+        /// </summary>
+        /// <param name="path"></param>
+        public static List<Bitmap> FittingEllipse2(string path)
+        {
+            // 加载图像并转换为灰度图
+            List<Bitmap> bitmaps = new List<Bitmap>();
+            Image<Bgr, byte> bgrImage = new Image<Bgr, byte>(path);
+            VectorOfVectorOfPoint contours = ContourFinding(path);
+            MCvScalar borderValue = new MCvScalar(0.255, 255, 0);
+            for (int i = 0; i < contours.Size; i++)
+            {
+                if (contours[i].Length >= 40)
+                {
+                    RotatedRect ellipse = CvInvoke.FitEllipse(contours[i]);
+                    // 可以对拟合的椭圆进行操作，如绘制
+                    // 创建一个用于绘制的图像副本
+                    Image<Bgr, byte> contourImage = bgrImage.Copy();
+                    PointF[] vertices = new PointF[4];
+                    vertices = ellipse.GetVertices();
+                    for (int j = 0; j < 4; j++)
+                    {
+                        PointF p1 = vertices[j];
+                        PointF p2 = vertices[(j + 1) % 4];
+                        CvInvoke.Line(contourImage, new Point((int)p1.X, (int)p1.Y), new Point((int)p2.X, (int)p2.Y), borderValue, 2);
+
+                    }
+                    Bitmap bitmap = contourImage.ToBitmap();
+                    bitmaps.Add(bitmap);
+                }
+            }
+            return bitmaps;
+        }
+
+
+        /// <summary>
+        /// 拟合直线
+        /// </summary>
+        /// <param name="path"></param>
+        public static List<Bitmap> FittingLine2(string path)
+        {
+            // 加载图像并转换为灰度图
+            List<Bitmap> bitmaps = new List<Bitmap>();
+            Image<Bgr, byte> bgrImage = new Image<Bgr, byte>(path);
+            VectorOfVectorOfPoint contours = ContourFinding(path);
+            MCvScalar borderValue = new MCvScalar(0.255, 255, 0);
+            for (int i = 0; i < contours.Size; i++)
+            {
+
+                PointF[] line = new PointF[2];
+                PointF[] pointFs = VectorOfPointToPointFList(contours[i]);
+                CvInvoke.FitLine(pointFs, out line[0], out line[1], DistType.L1, 1, 5, 100);
+                // 可以根据直线参数绘制直线
+                // 创建一个用于绘制的图像副本
+                Image<Bgr, byte> contourImage = bgrImage.Copy();
+                float x0 = contourImage.Width - line[0].X;
+                float y0 = line[0].Y; ;
+                float x1 = line[1].X;
+                float y1 = line[1].Y;
+                CvInvoke.Line(contourImage, new Point((int)x0, (int)y0), new Point((int)x1, (int)y1), borderValue, 2);
+                Bitmap bitmap = contourImage.ToBitmap();
+                bitmaps.Add(bitmap);
+            }
+            return bitmaps;
+        }
+        /// <summary>
+        /// 属性 --长宽比、范围、坚实度、等效直径、取向
+        /// </summary>
+        /// <param name="imagePath"></param>
+        public static void AnalyzeContoursInImage(string imagePath)
+        {
+            // 读取图像
+            Mat image = new Mat(imagePath, ImreadModes.Grayscale);
+            VectorOfVectorOfPoint contours = ContourFinding(imagePath);
+            MCvScalar borderValue = new MCvScalar(0.255, 255, 0);
+
+            // 遍历每个轮廓并获取相应属性
+            for (int i = 0; i < contours.Size; i++)
+            {
+                // 计算最小外接矩形
+                RotatedRect rotatedRect = CvInvoke.MinAreaRect(contours[i]);
+                double width = rotatedRect.Size.Width;
+                double height = rotatedRect.Size.Height;
+
+                // 1. 长宽比（Aspect Ratio）
+                double aspectRatio = width / height;
+
+                // 2. 范围（Extent）
+                double area = CvInvoke.ContourArea(contours[i]);
+                double rectArea = width * height;
+                double extent = area / rectArea;
+
+                // 3. 坚实度（Solidity）
+                PointF[] pointFs = VectorOfPointToPointFList(contours[i]);
+                PointF[] hullPoints = CvInvoke.ConvexHull(pointFs);
+                VectorOfPoint vectorOfPoint = PointFListToVectorOfPoint(hullPoints);
+                double hullArea = CvInvoke.ContourArea(vectorOfPoint);
+                double solidity = area / hullArea;
+
+                // 4. 等效直径（Equivalent Diameter）
+                double equivalentDiameter = Math.Sqrt(4 * area / Math.PI);
+
+                // 5. 取向（Orientation）
+                double orientation = rotatedRect.Angle;
+
+                Console.WriteLine($"轮廓 {i + 1} 的属性如下：");
+                Console.WriteLine($"长宽比: {aspectRatio}");
+                Console.WriteLine($"范围: {extent}");
+                Console.WriteLine($"坚实度: {solidity}");
+                Console.WriteLine($"等效直径: {equivalentDiameter}");
+                Console.WriteLine($"取向: {orientation}");
+                Console.WriteLine();
+
+                //GetContourProperties(contours[i], image);
+
+            }
+        }
+
+        public static List<Point> VectorOfPointToPointList(VectorOfPoint contour)
+        {
+            List<Point> points = new List<Point>();
+            for (int k = 0; k < contour.Length / 8; k++)
+            {
+                Point point = contour[k];
+                points.Add(point);
+            }
+            return points;
+        }
+        public static PointF[] VectorOfPointToPointFList(VectorOfPoint contour)
+        {
+            PointF[] pointFs = new PointF[contour.Length / 8];
+            for (int k = 0; k < contour.Length / 8; k++)
+            {
+                Point point = contour[k];
+                pointFs[k] = new PointF(point.X, point.Y);
+            }
+            return pointFs;
+        }
+        public static VectorOfPoint PointFListToVectorOfPoint(PointF[] pointFs)
+        {
+            VectorOfPoint vectorOfPoint = new VectorOfPoint();
+            Point[] points = new Point[pointFs.Length];
+            for (int m = 0; m < pointFs.Length; m++)
+            {
+                points[m] = new Point((int)pointFs[m].X, (int)pointFs[m].Y);
+            }
+            vectorOfPoint.Push(points);
+            return vectorOfPoint;
+        }
+        /// <summary>
+        /// 属性2--轮廓对应的掩码  像素值的最大值、最小值  平均颜色或平均强度  极端点
+        /// </summary>
+        /// <param name="contour"></param>
+        /// <param name="image"></param>
+        public static void GetContourProperties(VectorOfPoint contour, Mat image)
+        {
+            // 1. 获取轮廓对应的掩码（使用drawContours在空白图像上绘制轮廓来创建掩码）
+            Mat mask = new Mat(image.Rows, image.Cols, DepthType.Cv8U, 1);
+            CvInvoke.DrawContours(mask, new VectorOfVectorOfPoint(contour), -1, new MCvScalar(255), -1);
+
+            // 2. 获取轮廓内的像素点（遍历掩码获取对应位置的像素点）
+            List<Point> pixels = new List<Point>();
+            Dictionary<Point, double> imagepixels = new Dictionary<Point, double>();
+            int index = 0;
+            for (int y = 0; y < mask.Rows; y++)
+            {
+                byte[] row = mask.GetRawData(y);
+                byte[] imagerow = image.GetRawData(y);
+                for (int x = 0; x < mask.Cols; x++)
+                {
+                    if (row[x] == 255)
+                    {
+                        pixels.Add(new Point(x, y));
+                        imagepixels.Add(new Point(x, y), imagerow[x]);
+                    }
+                }
+            }
+
+            // 3. 获取像素值的最大值、最小值及其位置
+            double minVal = 0, maxVal = 0;
+            Point minLoc = new Point(), maxLoc = new Point();
+            CvInvoke.MinMaxLoc(image, ref minVal, ref maxVal, ref minLoc, ref maxLoc, mask);
+
+            // 4. 获取平均颜色或平均强度（针对灰度图像是平均强度，彩色图像则是平均颜色，这里以灰度为例）
+            double sum = 0;
+            foreach (Point p in pixels)
+            {
+                sum += imagepixels[p];
+            }
+            double averageIntensity = sum / pixels.Count;
+
+            // 5. 获取极端点（这里取轮廓的最左、最右、最上、最下的点作为极端点示例）
+            List<Point> points = VectorOfPointToPointList(contour);
+            Point leftMost = points.OrderBy(p => p.X).First();
+            Point rightMost = points.OrderByDescending(p => p.X).First();
+            Point topMost = points.OrderBy(p => p.Y).First();
+            Point bottomMost = points.OrderByDescending(p => p.Y).First();
+
+            Console.WriteLine($"轮廓相关属性如下：");
+            Console.WriteLine($"掩码尺寸: {mask.Size}");
+            Console.WriteLine($"像素点数量: {pixels.Count}");
+            Console.WriteLine($"最小值: {minVal}，最小值位置: {minLoc}");
+            Console.WriteLine($"最大值: {maxVal}，最大值位置: {maxLoc}");
+            Console.WriteLine($"平均强度: {averageIntensity}");
+            Console.WriteLine($"最左点: {leftMost}，最右点: {rightMost}，最上点: {topMost}，最下点: {bottomMost}");
+            Console.WriteLine();
+        }
+        /// <summary>
+        /// 凸性缺陷,有异常
+        /// </summary>
+        /// <param name="contour"></param>
+        public static void GetConvexityDefects(VectorOfPoint contour)
+        {
+            // 计算轮廓的凸包
+
+            PointF[] pointFs = VectorOfPointToPointFList(contour);
+            PointF[] hullPoints = CvInvoke.ConvexHull(pointFs);
+            VectorOfPoint convexHull = PointFListToVectorOfPoint(hullPoints);
+
+            // 查找凸性缺陷
+            if (convexHull.Size > 3)
+            {
+                // 用于存储凸性缺陷信息的向量
+                VectorOfInt convexityDefects = new VectorOfInt();
+                CvInvoke.ConvexityDefects(contour, convexHull, convexityDefects);
+
+                // 输出凸性缺陷相关信息（这里简单示例打印缺陷数量和部分数据，可根据实际需求详细处理）
+                Console.WriteLine($"轮廓的凸性缺陷数量: {convexityDefects.Size / 4}");
+                for (int i = 0; i < convexityDefects.Size; i += 4)
+                {
+                    int startIndex = convexityDefects[i];
+                    int endIndex = convexityDefects[i + 1];
+                    int farthestIndex = convexityDefects[i + 2];
+                    int depth = convexityDefects[i + 3];
+
+                    Point startPoint = contour[startIndex];
+                    Point endPoint = contour[endIndex];
+                    Point farthestPoint = contour[farthestIndex];
+
+                    Console.WriteLine($"凸性缺陷 {i / 4}: 起始点 {startPoint}, 结束点 {endPoint}, 最远点 {farthestPoint}, 深度 {depth}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("凸包点数小于等于3，不存在凸性缺陷。");
+            }
+        }
+        /// <summary>
+        /// 点多边形测试,点在轮廓线外时为负，点在轮廓线内时为正，点在轮廓线上时为零
+        /// </summary>
+        /// <param name="imagePath"></param>
+        /// <param name="testPoint"></param>
+        /// <returns></returns>
+        public static List<double> PerformPointPolygonTest(string imagePath, Point testPoint)
+        {
+            List<double> results = new List<double>();
+            // 读取图像
+            Mat image = new Mat(imagePath, ImreadModes.Grayscale);
+            VectorOfVectorOfPoint contours = ContourFinding(imagePath);
+            MCvScalar borderValue = new MCvScalar(0.255, 255, 0);
+
+            // 遍历每个轮廓，进行点多边形测试并保存结果
+            for (int i = 0; i < contours.Size; i++)
+            {
+                double result = CvInvoke.PointPolygonTest(contours[i], testPoint, false);
+                results.Add(result);
+            }
+
+            return results;
+        }
+        /// <summary>
+        /// 相似度匹配，有异常
+        /// </summary>
+        /// <param name="imagePath1"></param>
+        /// <param name="imagePath2"></param>
+        /// <returns></returns>
+        public static double ShapeMatchContours(string imagePath1, string imagePath2)
+        {
+            // 读取图像1
+            Mat image1 = new Mat(imagePath1, ImreadModes.Grayscale);
+            // 读取图像2
+            Mat image2 = new Mat(imagePath2, ImreadModes.Grayscale);
+
+            VectorOfVectorOfPoint contours1 = new VectorOfVectorOfPoint();
+            VectorOfVectorOfPoint contours2 = new VectorOfVectorOfPoint();
+            Mat hierarchy1 = new Mat();
+            Mat hierarchy2 = new Mat();
+
+            // 查找图像1中的轮廓
+            //CvInvoke.FindContours(image1, contours1, hierarchy1, RetrType.External, ChainApproxMethod.ChainApproxSimple);
+            //// 查找图像2中的轮廓
+            //CvInvoke.FindContours(image2, contours2, hierarchy2, RetrType.External, ChainApproxMethod.ChainApproxSimple);
+            contours1 = ContourFinding(imagePath1);
+            contours2 = ContourFinding(imagePath2);
+
+            if (contours1.Size > 0 && contours2.Size > 0)
+            {
+                // 以各自图像中的第一个轮廓为例进行形状匹配（可按需扩展循环遍历所有轮廓）
+                VectorOfPoint contour1 = contours1[6];
+                VectorOfPoint contour2 = contours2[6];
+
+                // 计算轮廓1的Hu矩
+                Moments moments1 = CvInvoke.Moments(contour1);
+                double[] huMoments1 = CvInvoke.HuMoments(moments1);
+
+                // 计算轮廓2的Hu矩
+                Moments moments2 = CvInvoke.Moments(contour2);
+                double[] huMoments2 = CvInvoke.HuMoments(moments2);
+
+                // 使用归一化相关系数来衡量形状匹配的相似度（基于Hu矩）
+                return CvInvoke.MatchShapes(contours1, contours2, ContoursMatchType.I1, 0);
+            }
+            else
+            {
+                // 如果没有成功获取到轮廓，返回一个默认的相似度值（比如0表示完全不相似）
+                return 0;
+            }
+        }
+
         public static void TickMeter(string path)
         {
 

@@ -3790,11 +3790,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WinFormsApp.csproj",
+      "projectUniqueName": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WinFormsApp.csproj",
       "projectName": "WinFormsApp",
-      "projectPath": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WinFormsApp.csproj",
+      "projectPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WinFormsApp.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\obj\\",
+      "outputPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\vs\\NuGetPackages",
@@ -3818,8 +3818,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\Common.csproj": {
-              "projectPath": "E:\\home\\github\\WinformOpenTK\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\Common.csproj"
+            "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\Common.csproj": {
+              "projectPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\Common\\Common.csproj"
             }
           }
         }
