@@ -13,7 +13,7 @@ namespace WinFormsApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new CandyCV());
+            Application.Run(new ImageConverterTool());
         }
     }
 }

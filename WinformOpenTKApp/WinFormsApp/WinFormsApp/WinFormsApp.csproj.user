@@ -7,6 +7,9 @@
     <Compile Update="MyOpenCV\EmguCV\CandyCV.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MyOpenCV\EmguCV\ImageConverterTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MyOpenCV\OpenCvSharp\ImageProcessingForm.cs">
       <SubType>Form</SubType>
     </Compile>
