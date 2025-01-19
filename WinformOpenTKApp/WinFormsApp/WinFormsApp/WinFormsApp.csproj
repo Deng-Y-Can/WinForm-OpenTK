@@ -19,6 +19,7 @@
     <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.10.0.20241108" />
     <PackageReference Include="OpenTK" Version="4.8.2" />
     <PackageReference Include="OpenTK.GLControl" Version="4.0.1" />
+    <PackageReference Include="System.Management" Version="9.0.1" />
   </ItemGroup>
 
   <ItemGroup>
