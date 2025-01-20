@@ -568,105 +568,198 @@ namespace WinFormsApp.MyOpenTK.DLL
 
             return vertices;
         }
-
         /// <summary>
-        /// 扇形
+        /// 扇形 
         /// </summary>
-        /// <param name="center">
-        /// 表示扇形圆心在三维空间中的坐标，是整个扇形的中心参照点，类型为OpenTK.Mathematics中的Vector3，
-        /// 所有顶点坐标的计算都围绕此点展开，决定了扇形在空间中的具体位置。
-        /// </param>
-        /// <param name="startVector">
-        /// 从圆心出发指向扇形起始边端点的向量，属于OpenTK.Mathematics中的Vector3类型，
-        /// 此向量既明确了扇形起始边的方向，其自身长度又确定了从圆心到起始边端点的距离，
-        /// 为后续顶点坐标计算提供基础方向与长度信息。
-        /// </param>
-        /// <param name="angleInDegrees">
-        /// 扇形张开的角度，以角度制为单位，是float类型，表示扇形在三维空间中展开的程度，
-        /// 该参数会在方法内部转换为弧度制用于后续计算，通过对转换后的角度进行合理细分来确定弧上不同位置的顶点，以此构建出完整的扇形顶点集合。
-        /// </param>
-        /// <returns>
-        /// 返回一个List<Vector3>类型的列表，其中按一定顺序依次存放了依据输入参数确定的扇形的所有顶点坐标。
-        /// </returns>
-        public static List<Vector3> Sector(Vector3 center, Vector3 startVector, float angleInDegrees)
+        /// <param name="O"></param>
+        /// <param name="B"></param>
+        /// <param name="xInDegrees"></param>
+        /// <param name="m"></param>
+        /// <param name="n"></param>
+        /// <param name="rotationAxis"></param>
+        /// <returns></returns>
+        public static List<Vector3> GenerateSpatialFanPoints(Vector3 O, Vector3 B, float xInDegrees, int m, int n, Vector3 rotationAxis)
         {
-            List<Vector3> vertices = new List<Vector3>();
-            float startVectorLength = startVector.Length;
-            Vector3 unitStartVector = startVector.Normalized();
+            ///Vector3 rotationAxis = new Vector3(0, 1, 0);  
+            ///Vector3 center = new Vector3(0, 0, 0);
+            ///Vector3 direction = new Vector3(1, 0, 0);
+            ///float x = 45f;
+            ///List<Vector3> fanPoints = GenerateSpatialFanPoints(center, direction, x, 10, 20, rotationAxis);
+            List<Vector3> points = new List<Vector3>();
+            // 计算从 O 到 B 的方向向量
+            Vector3 OB = B - O;
+            // 将角度从角度制转换为弧度制
+            float xInRadians = MathHelper.DegreesToRadians(xInDegrees);
+            // 计算 C 点坐标，使用旋转后的向量
+            Vector3 C = RotateVector(OB, xInRadians, rotationAxis);
+            C += O;
 
-            // 将角度制转换为弧度制，方便后续计算，因为数学库中的三角函数等操作通常使用弧度制
-            float angleInRadians = (float)(angleInDegrees * Math.PI / 180.0);
+            // 添加圆心点 O
+            points.Add(O);
 
-            // 设置角度细分的步长，这里取一个相对合适的值用于控制扇形精细程度，可根据实际需求调整
-            const float angleStep = 0.1f;
-
-            // 添加圆心坐标作为第一个顶点
-            vertices.Add(center);
-
-            // 遍历起始边添加顶点坐标（从圆心到扇形弧起始边的向量方向）
-            for (float angle = 0; angle <= startVectorLength; angle += angleStep)
+            // 在 OB 直线上添加 m 个点，将 OB 直线 m 等分
+            for (int i = 1; i <= m; i++)
             {
-                Vector3 currentVertex = center + unitStartVector * angle;
-                vertices.Add(currentVertex);
+                Vector3 point = O + (i / (float)m) * OB;
+                points.Add(point);
             }
 
-            // 通过旋转起始边方向向量来获取弧上不同角度对应的方向向量，并添加对应顶点坐标
-            for (float currentAngle = angleStep; currentAngle < angleInRadians; currentAngle += angleStep)
+            // 在 OC 直线上添加 m 个点，将 OC 直线 m 等分
+            Vector3 OC = C - O;
+            for (int i = 1; i <= m; i++)
             {
-                Quaternion rotationQuaternion = Quaternion.FromAxisAngle(unitStartVector, currentAngle);
-                Vector3 rotatedDirection = Vector3.Transform(unitStartVector, rotationQuaternion);
+                Vector3 point = O + (i / (float)m) * OC;
+                points.Add(point);
+            }
 
-                for (float length = 0; length <= startVectorLength; length += angleStep)
+            // 在弧 BC 上添加 n 个点，将弧 BC 等分
+            float angleStep = xInRadians / n;
+            for (int i = 0; i < n; i++)
+            {
+                float currentAngle = i * angleStep;
+                Vector3 rotated = RotateVector(OB, currentAngle, rotationAxis);
+                Vector3 point = O + rotated;
+                points.Add(point);
+            }
+
+            return points;
+        }
+
+        private static Vector3 RotateVector(Vector3 v, float angle, Vector3 axis)
+        {
+            // 使用 Quaternion 进行绕轴旋转
+            Quaternion rotation = Quaternion.FromAxisAngle(axis, angle);
+            return Vector3.Transform(v, rotation);
+
+           
+        }
+
+        /// <summary>
+        /// 圆锥
+        /// apex: 圆锥的顶点。
+        /// baseCenter: 圆锥底面的圆心
+        /// height: 圆锥的高度
+        /// baseRadius: 圆锥底面的半径
+        /// radialSegments: 圆锥底面圆周的分段数
+        /// heightSegments: 圆锥高度方向的分段数
+        /// </summary>
+        /// <param name="apex"></param>
+        /// <param name="baseCenter"></param>
+        /// <param name="height"></param>
+        /// <param name="baseRadius"></param>
+        /// <param name="radialSegments"></param>
+        /// <param name="heightSegments"></param>
+        /// <returns></returns>
+        public static List<Vector3> GenerateConePoints(Vector3 apex, Vector3 baseCenter, float height, float baseRadius, int radialSegments, int heightSegments)
+        {
+            //圆锥
+            //Vector3 apex = new Vector3(0, 1, 0);
+            //Vector3 baseCenter = new Vector3(0, 0, 0);
+            //float height = 1.0f;
+            //float baseRadius = 0.5f;
+            //int radialSegments = 30;
+            //int heightSegments = 10;
+            //List<Vector3> fanPoints = GenerateConePoints(apex, baseCenter, height, baseRadius, radialSegments, heightSegments);
+
+            List<Vector3> points = new List<Vector3>();
+
+            // 先添加圆锥顶点
+            points.Add(apex);
+
+            // 计算圆锥底面圆周上的点
+            Vector3 axis = baseCenter - apex;
+            Vector3 axisNormalized = axis.Normalized();
+            float angleStep = 2.0f * (float)Math.PI / radialSegments;
+            for (int i = 0; i < radialSegments; i++)
+            {
+                float angle = i * angleStep;
+                float x = (float)Math.Cos(angle) * baseRadius;
+                float y = (float)Math.Sin(angle) * baseRadius;
+                Vector3 basePoint = baseCenter + new Vector3(x, y, 0);
+                points.Add(basePoint);
+
+                // 沿圆锥高度方向添加点
+                for (int j = 1; j < heightSegments; j++)
                 {
-                    Vector3 vertex = center + rotatedDirection * length;
-                    vertices.Add(vertex);
+                    float t = (float)j / heightSegments;
+                    Vector3 point = Vector3.Lerp(apex, basePoint, t);
+                    points.Add(point);
                 }
             }
 
-            return vertices;
+            // 最后添加圆锥底面圆心点
+            points.Add(baseCenter);
+
+            return points;
+
+           
         }
 
         /// <summary>
-        ///圆锥（包含母线细分后的顶点）。
+        /// 空心圆柱
+        /// center: 圆柱的中心
+        /// height: 圆柱的高度
+        /// innerRadius: 圆柱的内半径
+        /// outerRadius: 圆柱的外半径
+        /// radialSegments: 圆柱圆周的分段数
+        /// heightSegments: 圆柱高度方向的分段数
         /// </summary>
-        /// <param name="bottomCenter">
-        /// 表示圆锥底面在三维空间中的圆心坐标，类型为Vector3，以此坐标为基准来确定圆锥底面各顶点以及整个圆锥在空间中的位置。
-        /// </param>
-        /// <param name="height">
-        /// 表示圆锥的高度，为float类型，用于确定圆锥顶点在垂直方向上相对于底面圆心的位置。
-        /// </param>
-        /// <param name="radius">
-        /// 表示圆锥底面的半径，为float类型，用于确定圆锥底面圆周上各顶点相对于底面圆心的偏移量，从而计算出底面各顶点坐标。
-        /// </param>
-        /// <param name="segments">
-        /// 表示圆锥母线的细分点数（包含底面圆周上的顶点和圆锥顶点），为float类型，需大于等于2，用于控制母线细分的程度，以获取更详细的顶点坐标信息。
-        /// </param>
-        /// <returns>
-        /// 返回一个List<Vector3>类型的列表，其中按顺序存放了依据输入参数确定的圆锥的所有顶点坐标。
-        /// </returns>
-        public static List<Vector3> Cone(Vector3 bottomCenter, float height, float radius, float segments)
+        /// <param name="center"></param>
+        /// <param name="height"></param>
+        /// <param name="innerRadius"></param>
+        /// <param name="outerRadius"></param>
+        /// <param name="radialSegments"></param>
+        /// <param name="heightSegments"></param>
+        /// <returns></returns>
+        public static List<Vector3> GenerateHollowCylinderPoints(Vector3 center, float height, float innerRadius, float outerRadius, int radialSegments, int heightSegments)
         {
-            List<Vector3> vertices = new List<Vector3>();
-            float step = (float)(2 * Math.PI / (segments - 1));  // 底面圆周上相邻两点对应的角度步长
+            //Vector3 center = new Vector3(0, 0, 0);
+            //float height = 2.0f;
+            //float innerRadius = 0.5f;
+            //float outerRadius = 1.0f;
+            //int radialSegments = 20;
+            //int heightSegments = 10;
+            //List<Vector3> fanPoints = GenerateHollowCylinderPoints(center, height, innerRadius, outerRadius, radialSegments, heightSegments);
+            List<Vector3> points = new List<Vector3>();
 
-            // 添加圆锥顶点坐标
-            vertices.Add(bottomCenter + new Vector3(0, height, 0));
+            float angleStep = 2.0f * (float)Math.PI / radialSegments;
+            float heightStep = height / heightSegments;
 
-            // 遍历计算并添加底面圆周上各顶点坐标
-            for (float angle = 0; angle < 2 * Math.PI; angle += step)
+            // 生成圆柱的上下底面的内外环上的点
+            for (int i = 0; i < radialSegments; i++)
             {
-                float x = (float)(radius * Math.Cos(angle));
-                float y = 0;
-                float z = (float)(radius * Math.Sin(angle));
-                vertices.Add(bottomCenter + new Vector3(x, y, z));
+                float angle = i * angleStep;
+                float cos = (float)Math.Cos(angle);
+                float sin = (float)Math.Sin(angle);
+
+                // 计算当前角度下的方向向量
+                Vector3 direction = new Vector3(cos, 0, sin);
+
+                // 计算上下底面的内圈点
+                Vector3 innerTopPoint = center + new Vector3(direction.X * innerRadius, height / 2, direction.Z * innerRadius);
+                Vector3 innerBottomPoint = center + new Vector3(direction.X * innerRadius, -height / 2, direction.Z * innerRadius);
+                Vector3 outerTopPoint = center + new Vector3(direction.X * outerRadius, height / 2, direction.Z * outerRadius);
+                Vector3 outerBottomPoint = center + new Vector3(direction.X * outerRadius, -height / 2, direction.Z * outerRadius);
+
+                points.Add(innerTopPoint);
+                points.Add(innerBottomPoint);
+                points.Add(outerTopPoint);
+                points.Add(outerBottomPoint);
+
+                // 生成侧面的点
+                for (int j = 0; j < heightSegments; j++)
+                {
+                    float t = (float)j / heightSegments;
+                    Vector3 innerPointTopToBottom = Vector3.Lerp(innerTopPoint, innerBottomPoint, t);
+                    Vector3 outerPointTopToBottom = Vector3.Lerp(outerTopPoint, outerBottomPoint, t);
+                    points.Add(innerPointTopToBottom);
+                    points.Add(outerPointTopToBottom);
+                }
             }
 
-            return vertices;
+            return points;
+           
         }
-
-
-
-
 
 
 
