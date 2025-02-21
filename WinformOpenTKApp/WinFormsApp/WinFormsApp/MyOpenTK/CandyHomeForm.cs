@@ -54,11 +54,11 @@ namespace WinFormsApp.MyOpenTK
             
 
             //正方形
-            Vector3 vector3 = new Vector3(0, 0, 0);
-            Vector3 vector31 = new Vector3(5, 5, 5);
-            Vector3 vector32 = new Vector3(-2, 1, 2);
-            List<Vector3> TestData = ModelList.Cone(vector3,5,45,10);
-            candyModel._vector = DataTool.Vector3ListToArray(TestData);
+            //Vector3 vector3 = new Vector3(0, 0, 0);
+            //Vector3 vector31 = new Vector3(5, 5, 5);
+            //Vector3 vector32 = new Vector3(-2, 1, 2);
+            //List<Vector3> TestData = ModelList.Cone(vector3,5,45,10);
+            //candyModel._vector = DataTool.Vector3ListToArray(TestData);
 
 
 

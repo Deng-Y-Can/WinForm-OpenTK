@@ -1,6 +1,7 @@
 using WinFormsApp.MyOpenCV.EmguCV;
 using WinFormsApp.MyOpenTK;
 using WinFormsApp.OpenCV.OpenCvSharp;
+using WinFormsApp.Robot;
 
 namespace WinFormsApp
 {
@@ -13,7 +14,7 @@ namespace WinFormsApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new VideoConverterTool());
+            Application.Run(new PIDVisualizationForm());
         }
     }
 }

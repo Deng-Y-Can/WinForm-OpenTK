@@ -43,5 +43,8 @@
     <Compile Update="Protocol\UdpP2PForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Robot\PIDVisualizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
