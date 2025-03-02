@@ -17,11 +17,12 @@ namespace WinFormsApp.MyOpenCV
         {
             InitializeComponent();
         }
-        string inputImagePath = "path/to/your/input/image.jpg";
-        string outputImagePath = "path/to/your/output/image.jpg";
-        string modelPath = "path/to/your/animeganv2.onnx";
+        string inputImagePath = $@"C:\Users\Acer\Desktop\1.jpg";
+        string outputImagePath = $@"C:\Users\Acer\Desktop\2.jpg";
+        string modelPath = $@"C:\Users\Acer\Desktop\Shinkai_53.onnx";
         private void button1_Click(object sender, EventArgs e)
         {
+            ImageConvert.PrintModelInputOutputNames(modelPath);
             ImageConvert.ConvertImage(inputImagePath, outputImagePath, modelPath);
         }
     }

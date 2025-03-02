@@ -1,3 +1,4 @@
+using WinFormsApp.MyOpenCV;
 using WinFormsApp.MyOpenCV.EmguCV;
 using WinFormsApp.MyOpenTK;
 using WinFormsApp.OpenCV.OpenCvSharp;
@@ -14,7 +15,7 @@ namespace WinFormsApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new PIDVisualizationForm());
+            Application.Run(new AnimePhotos());
         }
     }
 }
