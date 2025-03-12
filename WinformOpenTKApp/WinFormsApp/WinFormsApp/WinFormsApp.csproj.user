@@ -7,6 +7,9 @@
     <Compile Update="MyOpenCV\AnimePhotos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MyOpenCV\EmguCV\AnimePhotos2.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MyOpenCV\EmguCV\CandyCV.cs">
       <SubType>Form</SubType>
     </Compile>
