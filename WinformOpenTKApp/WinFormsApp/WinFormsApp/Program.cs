@@ -15,7 +15,7 @@ namespace WinFormsApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new AnimePhotos2());
+            Application.Run(new CandyImage());
         }
     }
 }
