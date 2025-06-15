@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Emgu.CV.CvEnum;
+using System.IO;
 
 namespace WinFormsApp.MyOpenCV.EmguCV
 {
@@ -56,7 +57,7 @@ namespace WinFormsApp.MyOpenCV.EmguCV
 
         private void InitializeUI()
         {
-            this.Text = "Candy 图片编辑器 V1.0";
+            this.Text = "Candy 图片编辑器 V1.2";
             this.Size = new Size(900, 650);
             this.StartPosition = FormStartPosition.CenterScreen;
 
@@ -118,6 +119,13 @@ namespace WinFormsApp.MyOpenCV.EmguCV
             exportButton.Click += ExportButton_Click;
             toolStrip.Items.Add(exportButton);
 
+            // 添加截取按钮
+            ToolStripButton cropButton = new ToolStripButton("截取图片");
+            cropButton.Image = SystemIcons.Hand.ToBitmap();
+            cropButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            cropButton.Click += CropButton_Click;
+            toolStrip.Items.Add(cropButton);
+
             // 添加分隔符
             toolStrip.Items.Add(new ToolStripSeparator());
         }
@@ -133,6 +141,11 @@ namespace WinFormsApp.MyOpenCV.EmguCV
             ToolStripButton colorPickerButton = new ToolStripButton("取色器");
             colorPickerButton.Click += ColorPickerButton_Click;
             toolStrip.Items.Add(colorPickerButton);
+
+            // 添加范围颜色替换按钮
+            ToolStripButton rangeColorReplaceButton = new ToolStripButton("范围颜色替换");
+            rangeColorReplaceButton.Click += RangeColorReplaceButton_Click;
+            toolStrip.Items.Add(rangeColorReplaceButton);
 
             // 添加分隔符
             toolStrip.Items.Add(new ToolStripSeparator());
@@ -684,10 +697,22 @@ namespace WinFormsApp.MyOpenCV.EmguCV
                         ImageLockMode.ReadOnly,
                         PixelFormat.Format24bppRgb);
 
+                    IntPtr ptr = bmpData.Scan0;
+                    int bytes = Math.Abs(bmpData.Stride) * bmpData.Height;
+                    byte[] rgbValues = new byte[bytes];
+                    System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
 
+                    // 将数据复制到EmguCV图像
+                    for (int y = 0; y < selectionBmp.Height; y++)
+                    {
+                        for (int x = 0; x < selectionBmp.Width; x++)
+                        {
+                            int index = y * bmpData.Stride + x * 3;
+                            cvImage[y, x] = new Bgr(rgbValues[index + 2], rgbValues[index + 1], rgbValues[index]);
+                        }
+                    }
 
-                    // 方法2: 通过IImage接口转换（适用于新版本）
-                    // using (Image<Bgr, byte> cvImage = selectionBmp.ToImage<Bgr, byte>())
+                    selectionBmp.UnlockBits(bmpData);
 
                     // 创建输出图像
                     using (Image<Bgr, byte> blurredImage = new Image<Bgr, byte>(cvImage.Size))
@@ -808,6 +833,172 @@ namespace WinFormsApp.MyOpenCV.EmguCV
                     e.Graphics.FillEllipse(selectionFillBrush, selectionRect);
                     e.Graphics.DrawEllipse(selectionPen, selectionRect);
                 }
+            }
+        }
+
+        // 范围颜色替换相关方法
+        private void RangeColorReplaceButton_Click(object sender, EventArgs e)
+        {
+            if (modifiedImage == null)
+            {
+                MessageBox.Show("请先导入图片", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (ColorRangeDialog colorRangeDialog = new ColorRangeDialog())
+            {
+                if (colorRangeDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (selectionRect.IsEmpty)
+                    {
+                        // 对整个图片应用范围颜色替换
+                        ReplaceColorRange(modifiedImage,
+                            colorRangeDialog.MinR, colorRangeDialog.MaxR,
+                            colorRangeDialog.MinG, colorRangeDialog.MaxG,
+                            colorRangeDialog.MinB, colorRangeDialog.MaxB,
+                            colorRangeDialog.TargetColor);
+                    }
+                    else
+                    {
+                        // 仅对选区应用范围颜色替换
+                        CreateSelectionMask();
+                        ReplaceColorRangeInSelection(modifiedImage,
+                            colorRangeDialog.MinR, colorRangeDialog.MaxR,
+                            colorRangeDialog.MinG, colorRangeDialog.MaxG,
+                            colorRangeDialog.MinB, colorRangeDialog.MaxB,
+                            colorRangeDialog.TargetColor);
+                    }
+
+                    UpdateStatus("已完成范围颜色替换");
+                    picBox.Invalidate();
+                }
+            }
+        }
+
+        private void ReplaceColorRange(Bitmap bitmap, int minR, int maxR, int minG, int maxG, int minB, int maxB, Color targetColor)
+        {
+            BitmapData data = bitmap.LockBits(
+                new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                ImageLockMode.ReadWrite,
+                PixelFormat.Format32bppArgb);
+
+            IntPtr ptr = data.Scan0;
+            int bytes = Math.Abs(data.Stride) * data.Height;
+            byte[] rgbValues = new byte[bytes];
+
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+            for (int i = 0; i < rgbValues.Length; i += 4)
+            {
+                byte b = rgbValues[i];
+                byte g = rgbValues[i + 1];
+                byte r = rgbValues[i + 2];
+
+                // 检查是否在原始颜色范围内
+                if (r >= minR && r <= maxR &&
+                    g >= minG && g <= maxG &&
+                    b >= minB && b <= maxB)
+                {
+                    // 替换为目标颜色
+                    rgbValues[i] = targetColor.B;
+                    rgbValues[i + 1] = targetColor.G;
+                    rgbValues[i + 2] = targetColor.R;
+                    rgbValues[i + 3] = targetColor.A;
+                }
+            }
+
+            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+            bitmap.UnlockBits(data);
+        }
+
+        private void ReplaceColorRangeInSelection(Bitmap bitmap, int minR, int maxR, int minG, int maxG, int minB, int maxB, Color targetColor)
+        {
+            BitmapData data = bitmap.LockBits(
+                selectionRect,
+                ImageLockMode.ReadWrite,
+                PixelFormat.Format32bppArgb);
+
+            IntPtr ptr = data.Scan0;
+            int bytes = Math.Abs(data.Stride) * selectionRect.Height;
+            byte[] rgbValues = new byte[bytes];
+
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+            for (int y = 0; y < selectionRect.Height; y++)
+            {
+                for (int x = 0; x < selectionRect.Width; x++)
+                {
+                    int index = y * data.Stride + x * 4;
+
+                    // 检查遮罩
+                    if (IsPointInSelection(x, y))
+                    {
+                        byte b = rgbValues[index];
+                        byte g = rgbValues[index + 1];
+                        byte r = rgbValues[index + 2];
+
+                        // 检查是否在原始颜色范围内
+                        if (r >= minR && r <= maxR &&
+                            g >= minG && g <= maxG &&
+                            b >= minB && b <= maxB)
+                        {
+                            // 替换为目标颜色
+                            rgbValues[index] = targetColor.B;
+                            rgbValues[index + 1] = targetColor.G;
+                            rgbValues[index + 2] = targetColor.R;
+                            rgbValues[index + 3] = targetColor.A;
+                        }
+                    }
+                }
+            }
+
+            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+            bitmap.UnlockBits(data);
+        }
+
+        // 新增的图片截取功能
+        private void CropButton_Click(object sender, EventArgs e)
+        {
+            if (modifiedImage == null)
+            {
+                MessageBox.Show("请先导入图片", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (selectionRect.IsEmpty)
+            {
+                MessageBox.Show("请先框选要截取的区域", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                // 创建与选区相同大小的新图像
+                Bitmap croppedImage = new Bitmap(selectionRect.Width, selectionRect.Height);
+
+                // 从原图复制选区内容
+                using (Graphics g = Graphics.FromImage(croppedImage))
+                {
+                    g.DrawImage(modifiedImage,
+                        new Rectangle(0, 0, selectionRect.Width, selectionRect.Height),
+                        selectionRect,
+                        GraphicsUnit.Pixel);
+                }
+
+                // 更新当前图像为截取后的图像
+                originalImage = croppedImage;
+                modifiedImage = croppedImage;
+                picBox.Image = modifiedImage;
+
+                // 重置选区
+                selectionRect = Rectangle.Empty;
+
+                UpdateStatus("已截取图片");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"截取图片时出错: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UpdateStatus("截取图片失败");
             }
         }
     }

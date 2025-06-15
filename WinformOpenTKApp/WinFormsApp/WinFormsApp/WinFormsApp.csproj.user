@@ -16,6 +16,9 @@
     <Compile Update="MyOpenCV\EmguCV\CandyImage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MyOpenCV\EmguCV\ColorRangeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MyOpenCV\EmguCV\ImageConverterTool.cs">
       <SubType>Form</SubType>
     </Compile>
