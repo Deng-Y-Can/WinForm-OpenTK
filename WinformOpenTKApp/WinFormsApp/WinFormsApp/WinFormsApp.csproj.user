@@ -61,5 +61,8 @@
     <Compile Update="Robot\PIDVisualizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="WindowsTool\FileSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
