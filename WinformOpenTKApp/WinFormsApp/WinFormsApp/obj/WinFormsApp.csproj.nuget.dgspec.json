@@ -135,6 +135,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
             "Emgu.CV": {
               "target": "Package",
               "version": "[4.9.0.5494, )"
@@ -158,6 +162,10 @@
             "Microsoft.ML.OnnxRuntime": {
               "target": "Package",
               "version": "[1.20.1, )"
+            },
+            "NPOI": {
+              "target": "Package",
+              "version": "[2.7.3, )"
             },
             "OpenCvSharp4": {
               "target": "Package",
