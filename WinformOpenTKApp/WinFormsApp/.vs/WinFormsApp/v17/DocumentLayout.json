@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\candyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\candyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\booklabel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\booklabel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\booklabel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\booklabel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\winformsapp\\booklabel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\booklabel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\fish.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\fish.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\winformsapp\\windowstool\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\fish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,88 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BookLabel.Designer.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\BookLabel.Designer.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\BookLabel.Designer.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\BookLabel.Designer.cs",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\BookLabel.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CandyImage.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs",
+              "ViewState": "AgIAAOQEAAAAAAAAAAAEwAMFAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T11:51:55.357Z"
+              "WhenOpened": "2025-06-21T14:31:18.911Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BookLabel.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\BookLabel.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\BookLabel.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\BookLabel.cs",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\BookLabel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T11:51:02.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BookLabel.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\BookLabel.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\BookLabel.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\BookLabel.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\BookLabel.cs [\u8BBE\u8BA1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T11:50:38.827Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Fish.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Fish.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\Fish.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Fish.cs",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\Fish.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T11:39:44.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Fish.Designer.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Fish.Designer.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\Fish.Designer.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Fish.Designer.cs",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\Fish.Designer.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAYwAoAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T11:39:13.411Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Fish.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Fish.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\Fish.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Fish.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\Fish.cs [\u8BBE\u8BA1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T11:37:16.79Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Program.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\Program.cs",
               "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Program.cs",
               "RelativeToolTip": "WinFormsApp\\Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAswBIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T13:14:51.992Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-19T13:14:51.992Z"
             }
           ]
         }

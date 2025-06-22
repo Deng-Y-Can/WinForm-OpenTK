@@ -46,7 +46,17 @@ namespace WinFormsApp.MyOpenCV.EmguCV
         {
             None,
             Mosaic,
-            Blur
+            Blur,
+            Sharpen,        
+            Emboss,
+            GaussianBlur,
+            Grayscale,
+            Invert,
+            Brightness,
+            Contrast,               
+            Cartoon,           
+            Vintage,
+           
         }
 
         public CandyImage()
@@ -192,7 +202,16 @@ namespace WinFormsApp.MyOpenCV.EmguCV
             effectComboBox.Items.AddRange(new object[] {
                 "无效果",
                 "马赛克",
-                "模糊"
+                "模糊",
+                "锐化",
+                "浮雕",
+                "高斯模糊",
+                "灰度化",
+                "反色",
+                "亮度调整",
+                "对比度调整",
+                 "卡通",
+                "复古",
             });
             effectComboBox.SelectedIndex = 0;
             toolStrip.Items.Add(new ToolStripLabel("特效:"));
@@ -558,7 +577,50 @@ namespace WinFormsApp.MyOpenCV.EmguCV
                         ApplyBlur(modifiedImage, selectionRect);
                         UpdateStatus("已应用模糊效果");
                         break;
+                    case ImageEffect.Sharpen:
+                        ApplySharpen(modifiedImage, selectionRect);
+                        UpdateStatus("已应用锐化效果");
+                        break;
 
+                    case ImageEffect.Emboss:
+                        ApplyEmboss(modifiedImage, selectionRect);
+                        UpdateStatus("已应用浮雕效果");
+                        break;
+
+                    case ImageEffect.GaussianBlur:
+                        ApplyGaussianBlur(modifiedImage, selectionRect);
+                        UpdateStatus("已应用高斯模糊效果");
+                        break;
+
+                    case ImageEffect.Grayscale:
+                        ApplyGrayscale(modifiedImage, selectionRect);
+                        UpdateStatus("已应用灰度化效果");
+                        break;
+
+                    case ImageEffect.Invert:
+                        ApplyInvert(modifiedImage, selectionRect);
+                        UpdateStatus("已应用反色效果");
+                        break;
+
+                    case ImageEffect.Brightness:
+                        ApplyBrightness(modifiedImage, selectionRect, 50);
+                        UpdateStatus("已应用亮度调整效果");
+                        break;
+
+                    case ImageEffect.Contrast:
+                        ApplyContrast(modifiedImage, selectionRect, 1.5f);
+                        UpdateStatus("已应用对比度调整效果");
+                        break;
+
+                    case ImageEffect.Cartoon:
+                        ApplyCartoon(modifiedImage, selectionRect);
+                        UpdateStatus("已应用卡通效果");
+                        break;              
+
+                    case ImageEffect.Vintage:
+                        ApplyVintage(modifiedImage, selectionRect);
+                        UpdateStatus("已应用复古效果");
+                        break;                                   
                     case ImageEffect.None:
                         UpdateStatus("未选择任何特效");
                         break;
@@ -1000,6 +1062,315 @@ namespace WinFormsApp.MyOpenCV.EmguCV
                 MessageBox.Show($"截取图片时出错: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UpdateStatus("截取图片失败");
             }
+        }
+
+
+        // 锐化效果处理
+        private void ApplySharpen(Bitmap bitmap, Rectangle rect)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            {
+                // 定义锐化卷积核
+                float[,] kernel = {
+            {0, -1, 0},
+            {-1, 5, -1},
+            {0, -1, 0}
+        };
+
+                ApplyConvolution(bitmap, tempBitmap, rect, kernel);
+            }
+        }
+
+        
+
+        // 浮雕效果处理
+        private void ApplyEmboss(Bitmap bitmap, Rectangle rect)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            {
+                // 定义浮雕卷积核
+                float[,] kernel = {
+            {-2, -1, 0},
+            {-1, 1, 1},
+            {0, 1, 2}
+        };
+
+                ApplyConvolution(bitmap, tempBitmap, rect, kernel);
+            }
+        }
+
+        // 高斯模糊效果处理
+        private void ApplyGaussianBlur(Bitmap bitmap, Rectangle rect)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            using (Graphics g = Graphics.FromImage(tempBitmap))
+            {
+                // 转换为EmguCV格式处理
+                using (Image<Bgr, byte> cvImage = BitmapToImageBgr(bitmap))
+                {
+                    // 应用高斯模糊
+                    using (Image<Bgr, byte> blurredImage = new Image<Bgr, byte>(cvImage.Size))
+                    {
+                        CvInvoke.GaussianBlur(cvImage, blurredImage, new Size(5, 5), 0);
+
+                        // 将模糊结果应用到原图选区内
+                        for (int y = 0; y < rect.Height; y++)
+                        {
+                            for (int x = 0; x < rect.Width; x++)
+                            {
+                                if (IsPointInSelection(x, y))
+                                {
+                                    Bgr color = blurredImage[y, x];
+                                    bitmap.SetPixel(rect.X + x, rect.Y + y, Color.FromArgb((int)color.Red, (int)color.Green, (int)color.Blue));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 灰度化效果处理
+        private void ApplyGrayscale(Bitmap bitmap, Rectangle rect)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            {
+                for (int y = 0; y < rect.Height; y++)
+                {
+                    for (int x = 0; x < rect.Width; x++)
+                    {
+                        if (IsPointInSelection(x, y))
+                        {
+                            Color pixel = tempBitmap.GetPixel(rect.X + x, rect.Y + y);
+                            int gray = (int)(0.299 * pixel.R + 0.587 * pixel.G + 0.114 * pixel.B);
+                            bitmap.SetPixel(rect.X + x, rect.Y + y, Color.FromArgb(gray, gray, gray));
+                        }
+                    }
+                }
+            }
+        }
+
+        // 反色效果处理
+        private void ApplyInvert(Bitmap bitmap, Rectangle rect)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            {
+                for (int y = 0; y < rect.Height; y++)
+                {
+                    for (int x = 0; x < rect.Width; x++)
+                    {
+                        if (IsPointInSelection(x, y))
+                        {
+                            Color pixel = tempBitmap.GetPixel(rect.X + x, rect.Y + y);
+                            bitmap.SetPixel(rect.X + x, rect.Y + y, Color.FromArgb(255 - pixel.R, 255 - pixel.G, 255 - pixel.B));
+                        }
+                    }
+                }
+            }
+        }
+
+        // 亮度调整效果处理
+        private void ApplyBrightness(Bitmap bitmap, Rectangle rect, int value)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            {
+                for (int y = 0; y < rect.Height; y++)
+                {
+                    for (int x = 0; x < rect.Width; x++)
+                    {
+                        if (IsPointInSelection(x, y))
+                        {
+                            Color pixel = tempBitmap.GetPixel(rect.X + x, rect.Y + y);
+                            int r = Math.Min(255, Math.Max(0, pixel.R + value));
+                            int g = Math.Min(255, Math.Max(0, pixel.G + value));
+                            int b = Math.Min(255, Math.Max(0, pixel.B + value));
+                            bitmap.SetPixel(rect.X + x, rect.Y + y, Color.FromArgb(r, g, b));
+                        }
+                    }
+                }
+            }
+        }
+
+        // 对比度调整效果处理
+        private void ApplyContrast(Bitmap bitmap, Rectangle rect, float value)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            {
+                for (int y = 0; y < rect.Height; y++)
+                {
+                    for (int x = 0; x < rect.Width; x++)
+                    {
+                        if (IsPointInSelection(x, y))
+                        {
+                            Color pixel = tempBitmap.GetPixel(rect.X + x, rect.Y + y);
+                            int r = Math.Min(255, Math.Max(0, (int)((pixel.R / 255.0 - 0.5) * value + 0.5) * 255));
+                            int g = Math.Min(255, Math.Max(0, (int)((pixel.G / 255.0 - 0.5) * value + 0.5) * 255));
+                            int b = Math.Min(255, Math.Max(0, (int)((pixel.B / 255.0 - 0.5) * value + 0.5) * 255));
+                            bitmap.SetPixel(rect.X + x, rect.Y + y, Color.FromArgb(r, g, b));
+                        }
+                    }
+                }
+            }
+        }
+
+       
+
+        
+
+        // 卡通效果处理
+        private void ApplyCartoon(Bitmap bitmap, Rectangle rect)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            using (Graphics g = Graphics.FromImage(tempBitmap))
+            {
+                // 转换为EmguCV格式处理
+                using (Image<Bgr, byte> cvImage = BitmapToImageBgr(bitmap))
+                using (Image<Gray, byte> grayImage = cvImage.Convert<Gray, byte>())
+                using (Image<Gray, byte> blurredGrayImage = new Image<Gray, byte>(grayImage.Size))
+                using (Image<Gray, byte> edgesImage = new Image<Gray, byte>(grayImage.Size))
+                {
+                    // 中值模糊
+                    CvInvoke.MedianBlur(grayImage, blurredGrayImage, 7);
+
+                    // 自适应阈值边缘检测
+                    CvInvoke.AdaptiveThreshold(
+                        blurredGrayImage, edgesImage, 255,
+                        AdaptiveThresholdType.MeanC, ThresholdType.Binary, 9, 2);
+
+                    // 双边滤波
+                    using (Image<Bgr, byte> filteredImage = new Image<Bgr, byte>(cvImage.Size))
+                    {
+                        CvInvoke.BilateralFilter(cvImage, filteredImage, 9, 75, 75);
+
+                        // 与边缘图像进行位运算
+                        using (Image<Bgr, byte> resultImage = new Image<Bgr, byte>(cvImage.Size))
+                        {
+                            CvInvoke.BitwiseAnd(filteredImage, filteredImage, resultImage, edgesImage);
+
+                            // 将结果应用到原图选区内
+                            for (int y = 0; y < rect.Height; y++)
+                            {
+                                for (int x = 0; x < rect.Width; x++)
+                                {
+                                    if (IsPointInSelection(x, y))
+                                    {
+                                        Bgr color = resultImage[y, x];
+                                        bitmap.SetPixel(rect.X + x, rect.Y + y, Color.FromArgb((int)color.Red, (int)color.Green, (int)color.Blue));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+       
+
+        // 复古效果处理
+        private void ApplyVintage(Bitmap bitmap, Rectangle rect)
+        {
+            using (Bitmap tempBitmap = new Bitmap(bitmap))
+            {
+                // 定义复古效果卷积核
+                float[,] kernel = {
+            {0.272f, 0.534f, 0.131f},
+            {0.349f, 0.686f, 0.168f},
+            {0.393f, 0.769f, 0.189f}
+        };
+
+                ApplyConvolution(bitmap, tempBitmap, rect, kernel);
+            }
+        }
+
+       
+
+        // 卷积操作辅助方法
+        private void ApplyConvolution(Bitmap destBitmap, Bitmap srcBitmap, Rectangle rect, float[,] kernel)
+        {
+            int kernelSize = kernel.GetLength(0);
+            int halfSize = kernelSize / 2;
+
+            for (int y = 0; y < rect.Height; y++)
+            {
+                for (int x = 0; x < rect.Width; x++)
+                {
+                    if (IsPointInSelection(x, y))
+                    {
+                        double r = 0, g = 0, b = 0;
+                        double kernelSum = 0;
+
+                        for (int ky = 0; ky < kernelSize; ky++)
+                        {
+                            for (int kx = 0; kx < kernelSize; kx++)
+                            {
+                                int srcX = rect.X + x + kx - halfSize;
+                                int srcY = rect.Y + y + ky - halfSize;
+
+                                // 确保不越界
+                                if (srcX >= 0 && srcX < srcBitmap.Width && srcY >= 0 && srcY < srcBitmap.Height)
+                                {
+                                    Color pixel = srcBitmap.GetPixel(srcX, srcY);
+                                    float weight = kernel[ky, kx];
+
+                                    r += pixel.R * weight;
+                                    g += pixel.G * weight;
+                                    b += pixel.B * weight;
+                                    kernelSum += Math.Abs(weight);
+                                }
+                            }
+                        }
+
+                        // 归一化
+                        if (kernelSum > 0)
+                        {
+                            r /= kernelSum;
+                            g /= kernelSum;
+                            b /= kernelSum;
+                        }
+
+                        // 确保值在0-255之间
+                        int finalR = Math.Min(255, Math.Max(0, (int)r));
+                        int finalG = Math.Min(255, Math.Max(0, (int)g));
+                        int finalB = Math.Min(255, Math.Max(0, (int)b));
+
+                        destBitmap.SetPixel(rect.X + x, rect.Y + y, Color.FromArgb(finalR, finalG, finalB));
+                    }
+                }
+            }
+        }
+
+        // Bitmap转Image<Bgr, byte>辅助方法
+        private Image<Bgr, byte> BitmapToImageBgr(Bitmap bitmap)
+        {
+            Image<Bgr, byte> result = new Image<Bgr, byte>(bitmap.Width, bitmap.Height);
+            BitmapData data = bitmap.LockBits(
+                new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                ImageLockMode.ReadOnly,
+                PixelFormat.Format24bppRgb);
+
+            try
+            {
+                IntPtr ptr = data.Scan0;
+                int bytes = Math.Abs(data.Stride) * data.Height;
+                byte[] rgbValues = new byte[bytes];
+                System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+                for (int y = 0; y < bitmap.Height; y++)
+                {
+                    for (int x = 0; x < bitmap.Width; x++)
+                    {
+                        int index = y * data.Stride + x * 3;
+                        result[y, x] = new Bgr(rgbValues[index + 2], rgbValues[index + 1], rgbValues[index]);
+                    }
+                }
+            }
+            finally
+            {
+                bitmap.UnlockBits(data);
+            }
+
+            return result;
         }
     }
 }
