@@ -16,7 +16,7 @@ namespace WinFormsApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new BookLabel());
+            Application.Run(new KeepCatch());
         }
     }
 }
