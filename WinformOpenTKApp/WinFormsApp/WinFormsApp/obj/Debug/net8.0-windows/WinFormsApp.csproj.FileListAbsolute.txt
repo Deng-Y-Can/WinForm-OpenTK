@@ -377,3 +377,10 @@ E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.BookLabel.resources
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.KeepCatch.resources
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.CandyInput.resources
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\System.Diagnostics.EventLog.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\System.ServiceProcess.ServiceController.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.ServiceProcess.ServiceController.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.ComputerButler.resources

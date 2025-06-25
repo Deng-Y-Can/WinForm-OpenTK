@@ -190,6 +190,10 @@
             "System.Management": {
               "target": "Package",
               "version": "[9.0.1, )"
+            },
+            "System.ServiceProcess.ServiceController": {
+              "target": "Package",
+              "version": "[9.0.6, )"
             }
           },
           "imports": [

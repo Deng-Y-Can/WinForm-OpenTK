@@ -64,6 +64,12 @@
     <Compile Update="Robot\PIDVisualizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="WindowsTool\CandyInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="WindowsTool\ComputerButler.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="WindowsTool\FileSort.cs">
       <SubType>Form</SubType>
     </Compile>
