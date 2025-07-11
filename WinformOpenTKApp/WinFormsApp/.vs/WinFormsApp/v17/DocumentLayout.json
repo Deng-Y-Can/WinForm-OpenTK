@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\computerbutler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\computerbutler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\contentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\contentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\jsongeneratorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\jsongeneratorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\contentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\contentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\jsongeneratorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\jsongeneratorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\candytool\\candyjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\candytool\\candyjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\candytool\\computermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\candytool\\computermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\computerbutler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\computerbutler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,53 +47,78 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ComputerButler.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\ComputerButler.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\ComputerButler.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\ComputerButler.cs",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\ComputerButler.cs",
-              "ViewState": "AgIAANoAAAAAAAAAAAAUwO0AAAAzAAAAAAAAAA==",
+              "Title": "ContentsForm.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\ContentsForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\ContentsForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\ContentsForm.cs",
+              "RelativeToolTip": "WinFormsApp\\ContentsForm.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAiwJAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T13:07:35.548Z",
+              "WhenOpened": "2025-07-11T12:03:22.545Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ComputerManager.cs",
               "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\CandyTool\\ComputerManager.cs",
               "RelativeDocumentMoniker": "WinFormsApp\\CandyTool\\ComputerManager.cs",
               "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\CandyTool\\ComputerManager.cs",
               "RelativeToolTip": "WinFormsApp\\CandyTool\\ComputerManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T13:05:16.782Z",
+              "WhenOpened": "2025-07-11T12:02:20.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JsonGeneratorForm.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\JsonGeneratorForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\JsonGeneratorForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\JsonGeneratorForm.cs",
+              "RelativeToolTip": "WinFormsApp\\WindowsTool\\JsonGeneratorForm.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T12:01:06.498Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ComputerButler.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\ComputerButler.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\ComputerButler.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\ComputerButler.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\ComputerButler.cs [\u8BBE\u8BA1]",
+              "Title": "JsonGeneratorForm.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\JsonGeneratorForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\JsonGeneratorForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\JsonGeneratorForm.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "WinFormsApp\\WindowsTool\\JsonGeneratorForm.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T13:03:45.046Z",
+              "WhenOpened": "2025-07-11T12:00:53.482Z",
               "EditorCaption": " [\u8BBE\u8BA1]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Program.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\Program.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Program.cs",
-              "RelativeToolTip": "WinFormsApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "CandyJson.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\CandyTool\\CandyJson.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\CandyTool\\CandyJson.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\CandyTool\\CandyJson.cs",
+              "RelativeToolTip": "WinFormsApp\\CandyTool\\CandyJson.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAkAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T13:14:51.992Z",
+              "WhenOpened": "2025-07-11T11:55:08.418Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ContentsForm.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\ContentsForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\ContentsForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\ContentsForm.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "WinFormsApp\\ContentsForm.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T11:38:25.069Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
             }
           ]
         }

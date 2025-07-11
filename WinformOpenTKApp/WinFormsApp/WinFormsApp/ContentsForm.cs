@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp.MyOpenCV.EmguCV;
 using WinFormsApp.OpenCV.OpenCvSharp;
+using WinFormsApp.WindowsTool;
 
 namespace WinFormsApp
 {
@@ -37,7 +39,17 @@ namespace WinFormsApp
             TreeNode subNode2 = new TreeNode("OpenTK");
             TreeNode subNode21 = new TreeNode("函数生成器");
             TreeNode subNode22 = new TreeNode("OpenTK测试");
-            
+
+            TreeNode subNode3 = new TreeNode("小工具");
+            TreeNode subNode31 = new TreeNode("书签");
+            TreeNode subNode32 = new TreeNode("电脑小管家");
+            TreeNode subNode33 = new TreeNode("文件分类");
+            TreeNode subNode34 = new TreeNode("摸鱼小工具");
+            TreeNode subNode35 = new TreeNode("截屏小工具");
+            TreeNode subNode36 = new TreeNode("图片处理器");
+            TreeNode subNode37 = new TreeNode("json生成器");
+
+
             rootNode.Nodes.Add(subNode1);
             subNode1.Nodes.Add(subNode11);
             subNode11.Nodes.Add(subNode111);
@@ -49,7 +61,16 @@ namespace WinFormsApp
             rootNode.Nodes.Add(subNode2);
             subNode2.Nodes.Add(subNode21);
             subNode2.Nodes.Add(subNode22);
-           
+
+            rootNode.Nodes.Add(subNode3);
+            subNode3.Nodes.Add(subNode31);
+            subNode3.Nodes.Add(subNode32);
+            subNode3.Nodes.Add(subNode33);
+            subNode3.Nodes.Add(subNode34);
+            subNode3.Nodes.Add(subNode35);
+            subNode3.Nodes.Add(subNode36);
+            subNode3.Nodes.Add(subNode37);
+
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -82,6 +103,42 @@ namespace WinFormsApp
             else if (e.Node.Text == "OpenTK测试")
             {
                 MainForm form3 = new MainForm();
+                form3.Show();
+            }
+
+            else if (e.Node.Text == "书签")
+            {
+                BookLabel form3 = new BookLabel();
+                form3.Show();
+            }
+            else if (e.Node.Text == "电脑小管家")
+            {
+                ComputerButler form3 = new ComputerButler();
+                form3.Show();
+            }
+            else if (e.Node.Text == "文件分类")
+            {
+                FileSort form3 = new FileSort();
+                form3.Show();
+            }
+            else if (e.Node.Text == "摸鱼小工具")
+            {
+                Fish form3 = new Fish();
+                form3.Show();
+            }
+            else if (e.Node.Text == "截屏小工具")
+            {
+                KeepCatch form3 = new KeepCatch();
+                form3.Show();
+            }
+            else if (e.Node.Text == "图片处理器")
+            {
+                CandyImage form3 = new CandyImage();
+                form3.Show();
+            }
+            else if (e.Node.Text == "json生成器")
+            {
+                JsonGeneratorForm form3 = new JsonGeneratorForm();
                 form3.Show();
             }
         }
