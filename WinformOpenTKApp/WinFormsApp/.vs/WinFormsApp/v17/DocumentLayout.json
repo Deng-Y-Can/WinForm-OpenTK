@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\computerbutler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\computerbutler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\colorrangedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\colorrangedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\candyinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\candyinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\colorrangedialog.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\colorrangedialog.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\booklabel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\booklabel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\candyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\candyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\robot\\pidvisualizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\robot\\pidvisualizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\textinputform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\textinputform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\robot\\pidvisualizationform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\robot\\pidvisualizationform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\robot\\pidvisualizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\robot\\pidvisualizationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\colorrangedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\colorrangedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,77 +42,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ComputerButler.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\ComputerButler.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\ComputerButler.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\ComputerButler.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\ComputerButler.cs [\u8BBE\u8BA1]",
+              "DocumentIndex": 3,
+              "Title": "TextInputForm.Designer.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\TextInputForm.Designer.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\TextInputForm.Designer.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\TextInputForm.Designer.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\TextInputForm.Designer.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAQwJIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:20:39.077Z",
+              "WhenOpened": "2025-07-13T05:36:22.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CandyImage.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T05:33:49.052Z",
               "EditorCaption": " [\u8BBE\u8BA1]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CandyInput.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\CandyInput.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\CandyInput.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\CandyInput.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\CandyInput.cs [\u8BBE\u8BA1]",
+              "Title": "ColorRangeDialog.Designer.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.Designer.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.Designer.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.Designer.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.Designer.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAQwO8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:20:38.119Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BookLabel.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\BookLabel.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\BookLabel.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\BookLabel.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\BookLabel.cs [\u8BBE\u8BA1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:20:36.423Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
+              "WhenOpened": "2025-07-13T05:31:54.992Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PIDVisualizationForm.Designer.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Robot\\PIDVisualizationForm.Designer.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\Robot\\PIDVisualizationForm.Designer.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Robot\\PIDVisualizationForm.Designer.cs",
-              "RelativeToolTip": "WinFormsApp\\Robot\\PIDVisualizationForm.Designer.cs",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAQwP8AAAA1AAAAAAAAAA==",
+              "Title": "ColorRangeDialog.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAYwCQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:14:42.1Z",
+              "WhenOpened": "2025-07-13T05:31:35.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PIDVisualizationForm.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Robot\\PIDVisualizationForm.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\Robot\\PIDVisualizationForm.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Robot\\PIDVisualizationForm.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\Robot\\PIDVisualizationForm.cs [\u8BBE\u8BA1]",
+              "DocumentIndex": 0,
+              "Title": "ColorRangeDialog.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs [\u8BBE\u8BA1]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:14:07.963Z",
+              "WhenOpened": "2025-07-13T05:31:33.267Z",
               "EditorCaption": " [\u8BBE\u8BA1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PIDVisualizationForm.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Robot\\PIDVisualizationForm.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\Robot\\PIDVisualizationForm.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\Robot\\PIDVisualizationForm.cs",
-              "RelativeToolTip": "WinFormsApp\\Robot\\PIDVisualizationForm.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwC8AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:05:30.742Z",
-              "EditorCaption": ""
             }
           ]
         }
