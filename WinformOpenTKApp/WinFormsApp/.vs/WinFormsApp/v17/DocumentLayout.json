@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\colorrangedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\colorrangedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\colorrangedialog.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\colorrangedialog.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\candyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\candyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\textinputform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\textinputform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\myopencv\\emgucv\\colorrangedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\myopencv\\emgucv\\colorrangedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\txtencoding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\txtencoding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,66 +26,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TextInputForm.Designer.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\TextInputForm.Designer.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\TextInputForm.Designer.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\TextInputForm.Designer.cs",
-              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\TextInputForm.Designer.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAQwJIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:36:22.276Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CandyImage.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\CandyImage.cs [\u8BBE\u8BA1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:33:49.052Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ColorRangeDialog.Designer.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.Designer.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.Designer.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.Designer.cs",
-              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.Designer.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAQwO8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:31:54.992Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ColorRangeDialog.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
-              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAYwCQAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:31:35.08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ColorRangeDialog.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "WinFormsApp\\MyOpenCV\\EmguCV\\ColorRangeDialog.cs [\u8BBE\u8BA1]",
+              "Title": "TxtEncoding.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\TxtEncoding.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\TxtEncoding.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\TxtEncoding.cs",
+              "RelativeToolTip": "WinFormsApp\\WindowsTool\\TxtEncoding.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwC4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:31:33.267Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
+              "WhenOpened": "2025-07-13T05:45:34.719Z",
+              "EditorCaption": ""
             }
           ]
         }
