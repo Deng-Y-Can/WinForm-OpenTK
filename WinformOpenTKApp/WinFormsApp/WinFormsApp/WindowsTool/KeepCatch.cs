@@ -35,7 +35,7 @@ namespace WinFormsApp.WindowsTool
         public KeepCatch()
         {
             InitializeComponent();
-            InitializeUI();
+            
         }
 
         // 初始化UI组件
