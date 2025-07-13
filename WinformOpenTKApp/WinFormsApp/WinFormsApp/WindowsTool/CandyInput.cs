@@ -15,7 +15,7 @@ namespace WinFormsApp.WindowsTool
 {
     public partial class CandyInput : Form
     {
-        // Windows API 导入
+        // Windows API 导入（保持不变）
         [DllImport("user32.dll")]
         private static extern IntPtr SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hMod, uint dwThreadId);
 
@@ -41,7 +41,7 @@ namespace WinFormsApp.WindowsTool
         [DllImport("kernel32.dll")]
         private static extern IntPtr GetModuleHandle(string lpModuleName);
 
-        // 钩子类型和常量定义
+        // 钩子类型和常量定义（保持不变）
         private const int WH_KEYBOARD_LL = 13;
         private const int WM_KEYDOWN = 0x0100;
         private const int WM_KEYUP = 0x0101;
@@ -49,7 +49,7 @@ namespace WinFormsApp.WindowsTool
         private const uint KEYEVENTF_KEYDOWN = 0x0000;
         private const uint KEYEVENTF_KEYUP = 0x0002;
 
-        // 虚拟键码常量
+        // 虚拟键码常量（保持不变）
         private const int VK_SHIFT = 0x10;
         private const int VK_CAPITAL = 0x14;
         private const int VK_CONTROL = 0x11;
@@ -63,7 +63,7 @@ namespace WinFormsApp.WindowsTool
         private const int VK_DIVIDE = 0x6F;
         private const int VK_DECIMAL = 0x6E;
 
-        // 输入法状态
+        // 输入法状态（保持不变）
         private bool isEnabled = false;
         private InputMode currentMode = InputMode.EnglishLower;
         private IntPtr hookId = IntPtr.Zero;
@@ -75,23 +75,23 @@ namespace WinFormsApp.WindowsTool
         private bool isCtrlPressed = false;
         private bool isAltPressed = false;
 
-        // 安全机制变量
+        // 安全机制变量（保持不变）
         private DateTime lastHookTime = DateTime.MinValue;
         private int hookCallCount = 0;
         private const int MAX_HOOK_CALLS_PER_SECOND = 1000;
         private bool isErrorState = false;
 
-        // 按键防抖 - 使用更精确的按键状态跟踪
+        // 按键防抖 - 使用更精确的按键状态跟踪（保持不变）
         private Dictionary<int, KeyStateInfo> keyStates = new Dictionary<int, KeyStateInfo>();
         private const int KEY_DEBOUNCE_MS = 50; // 按键防抖时间，毫秒
 
-        // 记录最后处理的按键信息
+        // 记录最后处理的按键信息（保持不变）
         private int lastProcessedVkCode = 0;
         private IntPtr lastProcessedWParam = IntPtr.Zero;
         private DateTime lastProcessedTime = DateTime.MinValue;
         private const int DUPLICATE_KEY_THRESHOLD = 50; // 重复按键阈值，毫秒
 
-        // 拼音字典
+        // 拼音字典（保持不变）
         private Dictionary<string, List<string>> pinyinDict = new Dictionary<string, List<string>>
         {
             { "ni", new List<string> { "你", "尼", "泥", "妮", "拟" } },
@@ -111,7 +111,7 @@ namespace WinFormsApp.WindowsTool
             { "hua", new List<string> { "话", "花", "画", "华", "滑" } }
         };
 
-        // 符号映射表 - 扩展版，支持更多符号
+        // 符号映射表 - 扩展版，支持更多符号（保持不变）
         private Dictionary<int, char> symbolMap = new Dictionary<int, char>
         {
             { 0x30, '0' }, { 0x31, '1' }, { 0x32, '2' }, { 0x33, '3' }, { 0x34, '4' },
@@ -134,18 +134,10 @@ namespace WinFormsApp.WindowsTool
             { 0xBC, '<' }, { 0xBF, '?' }
         };
 
-        // 输入法状态显示控件
-        private Label statusLabel;
-        private Label pinyinLabel;
-        private Label candidateLabel;
-        private Button toggleButton;
-        private ComboBox modeComboBox;
-        private Label safetyLabel;
-
-        // 显式定义 HookProc 委托
+        // 显式定义 HookProc 委托（保持不变）
         private delegate IntPtr HookProc(int nCode, IntPtr wParam, IntPtr lParam);
 
-        // 输入法模式枚举
+        // 输入法模式枚举（保持不变）
         private enum InputMode
         {
             Chinese,
@@ -153,7 +145,7 @@ namespace WinFormsApp.WindowsTool
             EnglishLower
         }
 
-        // 按键状态信息类
+        // 按键状态信息类（保持不变）
         private class KeyStateInfo
         {
             public bool IsDown { get; set; }
@@ -163,149 +155,43 @@ namespace WinFormsApp.WindowsTool
 
         public CandyInput()
         {
-            // 初始化窗体
-            Text = "自定义输入法";
-            Width = 400;
-            Height = 310;
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
-            BackColor = System.Drawing.Color.FromArgb(245, 245, 245);
+            InitializeComponent(); // 调用Designer生成的初始化方法
 
             // 初始化钩子处理函数
             hookProc = HookCallback;
 
-            // 创建顶部标题
-            Label titleLabel = new Label
-            {
-                Text = "自定义输入法控制台",
-                Font = new System.Drawing.Font("微软雅黑", 12, System.Drawing.FontStyle.Bold),
-                ForeColor = System.Drawing.Color.FromArgb(50, 50, 50),
-                Location = new System.Drawing.Point(120, 15),
-                Size = new System.Drawing.Size(160, 30),
-                TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-            };
-            Controls.Add(titleLabel);
-
-            // 创建状态标签
-            statusLabel = new Label
-            {
-                Text = "状态: 禁用 | 英文小写",
-                Font = new System.Drawing.Font("微软雅黑", 9),
-                ForeColor = System.Drawing.Color.FromArgb(80, 80, 80),
-                Location = new System.Drawing.Point(120, 50),
-                Size = new System.Drawing.Size(160, 20),
-                TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-            };
-            Controls.Add(statusLabel);
-
-            // 创建安全状态标签
-            safetyLabel = new Label
-            {
-                Text = "安全状态: 正常",
-                Font = new System.Drawing.Font("微软雅黑", 8, System.Drawing.FontStyle.Italic),
-                ForeColor = System.Drawing.Color.Green,
-                Location = new System.Drawing.Point(120, 70),
-                Size = new System.Drawing.Size(160, 15),
-                TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-            };
-            Controls.Add(safetyLabel);
-
-            // 创建控制按钮
-            toggleButton = new Button
-            {
-                Text = "启用输入法",
-                Font = new System.Drawing.Font("微软雅黑", 10),
-                BackColor = System.Drawing.Color.FromArgb(66, 133, 244),
-                ForeColor = System.Drawing.Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Location = new System.Drawing.Point(150, 85),
-                Size = new System.Drawing.Size(100, 35)
-            };
-            toggleButton.FlatAppearance.BorderSize = 0;
-            toggleButton.Click += ToggleButton_Click;
-            Controls.Add(toggleButton);
-
-            // 创建模式选择下拉框
-            modeComboBox = new ComboBox
-            {
-                Font = new System.Drawing.Font("微软雅黑", 9),
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Location = new System.Drawing.Point(120, 135),
-                Size = new System.Drawing.Size(160, 23)
-            };
+            // 初始化模式下拉框选项
             modeComboBox.Items.AddRange(new object[] { "中文", "英文大写", "英文小写" });
             modeComboBox.SelectedIndex = (int)InputMode.EnglishLower;
-            modeComboBox.SelectedIndexChanged += ModeComboBox_SelectedIndexChanged;
-            Controls.Add(modeComboBox);
-
-            // 创建拼音缓冲区显示
-            pinyinLabel = new Label
-            {
-                Text = "拼音: ",
-                Font = new System.Drawing.Font("微软雅黑", 10),
-                ForeColor = System.Drawing.Color.FromArgb(50, 50, 50),
-                Location = new System.Drawing.Point(50, 180),
-                Size = new System.Drawing.Size(300, 25),
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            Controls.Add(pinyinLabel);
-
-            // 创建候选词显示
-            candidateLabel = new Label
-            {
-                Text = "候选: ",
-                Font = new System.Drawing.Font("微软雅黑", 10),
-                ForeColor = System.Drawing.Color.FromArgb(50, 50, 50),
-                Location = new System.Drawing.Point(50, 210),
-                Size = new System.Drawing.Size(300, 25),
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            Controls.Add(candidateLabel);
-
-            // 创建错误提示标签
-            Label errorLabel = new Label
-            {
-                Text = "注意: 按Ctrl+Shift+X可强制禁用输入法",
-                Font = new System.Drawing.Font("微软雅黑", 8, System.Drawing.FontStyle.Italic),
-                ForeColor = System.Drawing.Color.FromArgb(100, 100, 100),
-                Location = new System.Drawing.Point(50, 240),
-                Size = new System.Drawing.Size(300, 20),
-                TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-            };
-            Controls.Add(errorLabel);
-
-            // 初始化定时器
-            System.Windows.Forms.Timer safetyTimer = new System.Windows.Forms.Timer();
-            safetyTimer.Interval = 1000;
-            safetyTimer.Tick += (sender, e) =>
-            {
-                hookCallCount = 0;
-                keyStates.Clear(); // 每秒重置所有按键状态
-
-                if (isErrorState)
-                {
-                    safetyLabel.Text = "安全状态: 错误 - 已禁用";
-                    safetyLabel.ForeColor = System.Drawing.Color.Red;
-
-                    if (isEnabled)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            ToggleButton_Click(toggleButton, EventArgs.Empty);
-                        }));
-                    }
-                }
-                else
-                {
-                    safetyLabel.Text = "安全状态: 正常";
-                    safetyLabel.ForeColor = System.Drawing.Color.Green;
-                }
-            };
-            safetyTimer.Start();
         }
 
-        // 切换输入法启用/禁用状态
+        // 定时器Tick事件（从原匿名方法提取为具名方法）
+        private void SafetyTimer_Tick(object sender, EventArgs e)
+        {
+            hookCallCount = 0;
+            keyStates.Clear(); // 每秒重置所有按键状态
+
+            if (isErrorState)
+            {
+                safetyLabel.Text = "安全状态: 错误 - 已禁用";
+                safetyLabel.ForeColor = System.Drawing.Color.Red;
+
+                if (isEnabled)
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        ToggleButton_Click(toggleButton, EventArgs.Empty);
+                    }));
+                }
+            }
+            else
+            {
+                safetyLabel.Text = "安全状态: 正常";
+                safetyLabel.ForeColor = System.Drawing.Color.Green;
+            }
+        }
+
+        // 切换输入法启用/禁用状态（保持不变）
         private void ToggleButton_Click(object sender, EventArgs e)
         {
             try
@@ -358,7 +244,7 @@ namespace WinFormsApp.WindowsTool
             }
         }
 
-        // 模式选择变更
+        // 模式选择变更（保持不变）
         private void ModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -383,7 +269,7 @@ namespace WinFormsApp.WindowsTool
             }
         }
 
-        // 更新状态标签显示
+        // 以下为其余业务逻辑方法（保持不变）
         private void UpdateStatusLabel()
         {
             string status = isEnabled ? "启用" : "禁用";
@@ -398,7 +284,6 @@ namespace WinFormsApp.WindowsTool
             statusLabel.Text = $"状态: {status} | {modeText}";
         }
 
-        // 清空输入状态
         private void ClearInputState()
         {
             pinyinBuffer.Clear();
@@ -407,7 +292,6 @@ namespace WinFormsApp.WindowsTool
             UpdateInputDisplay();
         }
 
-        // 更新输入显示
         private void UpdateInputDisplay()
         {
             pinyinLabel.Text = currentMode == InputMode.Chinese ?
@@ -429,9 +313,9 @@ namespace WinFormsApp.WindowsTool
             candidateLabel.Text = candidateText;
         }
 
-        // 键盘钩子回调函数
         private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
+            // 原有实现保持不变
             try
             {
                 // 安全检查
@@ -612,7 +496,6 @@ namespace WinFormsApp.WindowsTool
             return CallNextHookEx(hookId, nCode, wParam, lParam);
         }
 
-        // 判断是否为功能键
         private bool IsFunctionKey(int vkCode)
         {
             // F1-F12
@@ -630,7 +513,6 @@ namespace WinFormsApp.WindowsTool
             return false;
         }
 
-        // 处理中文输入
         private IntPtr ProcessChineseInput(int vkCode, int nCode, IntPtr wParam, IntPtr lParam)
         {
             // 字母键处理
@@ -696,7 +578,6 @@ namespace WinFormsApp.WindowsTool
             return (IntPtr)1;
         }
 
-        // 处理英文输入
         private IntPtr ProcessEnglishInput(int vkCode, bool isUpper, int nCode, IntPtr wParam, IntPtr lParam)
         {
             // 字母键处理
@@ -719,7 +600,6 @@ namespace WinFormsApp.WindowsTool
             return CallNextHookEx(hookId, nCode, wParam, lParam);
         }
 
-        // 根据VK码获取符号 - 优化符号处理逻辑
         private char GetSymbolFromVkCode(int vkCode)
         {
             // 检查是否是Shift+数字组合
@@ -744,7 +624,6 @@ namespace WinFormsApp.WindowsTool
             return (char)vkCode;
         }
 
-        // 生成候选词
         private void GenerateCandidates()
         {
             candidates.Clear();
@@ -773,7 +652,6 @@ namespace WinFormsApp.WindowsTool
             }
         }
 
-        // 发送按键
         private void SendKey(byte vkCode)
         {
             IntPtr hwnd = GetForegroundWindow();
@@ -789,7 +667,6 @@ namespace WinFormsApp.WindowsTool
             keybd_event(vkCode, 0, KEYEVENTF_KEYUP, 0);
         }
 
-        // 发送中文字符
         private void SendChineseCharacter(string text)
         {
             IntPtr hwnd = GetForegroundWindow();
@@ -800,7 +677,6 @@ namespace WinFormsApp.WindowsTool
             }
         }
 
-        // 窗体关闭时清理资源
         private void CandyInput_FormClosing(object sender, FormClosingEventArgs e)
         {
             try

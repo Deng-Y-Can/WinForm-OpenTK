@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp.MyOpenCV.EmguCV;
 using WinFormsApp.OpenCV.OpenCvSharp;
+using WinFormsApp.Robot;
 using WinFormsApp.WindowsTool;
 
 namespace WinFormsApp
@@ -51,6 +52,9 @@ namespace WinFormsApp
             TreeNode subNode38 = new TreeNode("txt转编码");
             TreeNode subNode39 = new TreeNode("文件格式转换");
 
+            TreeNode subNode4 = new TreeNode("算法");
+            TreeNode subNode41 = new TreeNode("PID控制");
+
 
             rootNode.Nodes.Add(subNode1);
             subNode1.Nodes.Add(subNode11);
@@ -74,6 +78,9 @@ namespace WinFormsApp
             subNode3.Nodes.Add(subNode37);
             subNode3.Nodes.Add(subNode38);
             subNode3.Nodes.Add(subNode39);
+
+            rootNode.Nodes.Add(subNode4);
+            subNode4.Nodes.Add(subNode41);
 
         }
 
@@ -154,6 +161,10 @@ namespace WinFormsApp
                 case "文件格式转换":
                     DocumentFormatConverter form15 = new DocumentFormatConverter();
                     form15.Show();
+                    break;
+                case "PID控制":
+                    PIDVisualizationForm form141 = new PIDVisualizationForm();
+                    form141.Show();
                     break;
             }
 
