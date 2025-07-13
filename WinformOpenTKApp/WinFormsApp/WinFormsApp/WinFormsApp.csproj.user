@@ -70,6 +70,9 @@
     <Compile Update="WindowsTool\ComputerButler.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="WindowsTool\DocumentFormatConverter.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="WindowsTool\FileSort.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +83,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="WindowsTool\KeepCatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="WindowsTool\TxtEncoding.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
