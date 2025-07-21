@@ -394,3 +394,8 @@ E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\runtimes\win-x86\native\libHarfBuzzSharp.dll
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.DocumentFormatConverter.resources
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.TxtEncoding.resources
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\x64\pdfium.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\x86\pdfium.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\PdfiumViewer.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\nl\PdfiumViewer.resources.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.Print.resources

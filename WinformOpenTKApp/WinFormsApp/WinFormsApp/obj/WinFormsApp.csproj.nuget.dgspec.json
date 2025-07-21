@@ -187,6 +187,18 @@
               "target": "Package",
               "version": "[4.0.1, )"
             },
+            "PdfiumViewer": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            },
+            "PdfiumViewer.Native.x86.v8-xfa": {
+              "target": "Package",
+              "version": "[2018.4.8.256, )"
+            },
+            "PdfiumViewer.Native.x86_64.v8-xfa": {
+              "target": "Package",
+              "version": "[2018.4.8.256, )"
+            },
             "Spire.Doc": {
               "target": "Package",
               "version": "[13.6.14, )"

@@ -30,57 +30,59 @@ namespace WinFormsApp
             treeView1.Nodes.Add(rootNode);
             // 创建子节点
             TreeNode subNode1 = new TreeNode("OpenCV");
-            TreeNode subNode11 = new TreeNode("EmguCV");
-            TreeNode subNode111 = new TreeNode("EmguCV测试");
-            TreeNode subNode12 = new TreeNode("OpenCvSharp");
-            TreeNode subNode121 = new TreeNode("图片加载1");
-            TreeNode subNode122 = new TreeNode("图片加载2");
-            TreeNode subNode123 = new TreeNode("摄像头");
+            TreeNode subNode1_1 = new TreeNode("EmguCV");
+            TreeNode subNode1_1_1 = new TreeNode("EmguCV测试");
+            TreeNode subNode1_2 = new TreeNode("OpenCvSharp");
+            TreeNode subNode1_2_1 = new TreeNode("图片加载1");
+            TreeNode subNode1_2_2 = new TreeNode("图片加载2");
+            TreeNode subNode1_2_3 = new TreeNode("摄像头");
 
             TreeNode subNode2 = new TreeNode("OpenTK");
-            TreeNode subNode21 = new TreeNode("函数生成器");
-            TreeNode subNode22 = new TreeNode("OpenTK测试");
+            TreeNode subNode2_1 = new TreeNode("函数生成器");
+            TreeNode subNode2_2 = new TreeNode("OpenTK测试");
 
             TreeNode subNode3 = new TreeNode("小工具");
-            TreeNode subNode31 = new TreeNode("书签");
-            TreeNode subNode32 = new TreeNode("电脑小管家");
-            TreeNode subNode33 = new TreeNode("文件分类");
-            TreeNode subNode34 = new TreeNode("摸鱼小工具");
-            TreeNode subNode35 = new TreeNode("截屏小工具");
-            TreeNode subNode36 = new TreeNode("图片处理器");
-            TreeNode subNode37 = new TreeNode("json生成器");
-            TreeNode subNode38 = new TreeNode("txt转编码");
-            TreeNode subNode39 = new TreeNode("文件格式转换");
+            TreeNode subNode3_1 = new TreeNode("书签");
+            TreeNode subNode3_2 = new TreeNode("电脑小管家");
+            TreeNode subNode3_3 = new TreeNode("文件分类");
+            TreeNode subNode3_4 = new TreeNode("摸鱼小工具");
+            TreeNode subNode3_5 = new TreeNode("截屏小工具");
+            TreeNode subNode3_6 = new TreeNode("图片处理器");
+            TreeNode subNode3_7 = new TreeNode("json生成器");
+            TreeNode subNode3_8 = new TreeNode("txt转编码");
+            TreeNode subNode3_9 = new TreeNode("文件格式转换");
+            TreeNode subNode3_10 = new TreeNode("打印");
 
             TreeNode subNode4 = new TreeNode("算法");
-            TreeNode subNode41 = new TreeNode("PID控制");
+            TreeNode subNode4_1 = new TreeNode("PID控制");
 
 
             rootNode.Nodes.Add(subNode1);
-            subNode1.Nodes.Add(subNode11);
-            subNode11.Nodes.Add(subNode111);
-            subNode1.Nodes.Add(subNode12);
-            subNode12.Nodes.Add(subNode121);
-            subNode12.Nodes.Add(subNode122);
-            subNode12.Nodes.Add(subNode123);
+            subNode1.Nodes.Add(subNode1_1);
+            subNode1_1.Nodes.Add(subNode1_1_1);
+            subNode1.Nodes.Add(subNode1_2);
+            subNode1_2.Nodes.Add(subNode1_2_1);
+            subNode1_2.Nodes.Add(subNode1_2_2);
+            subNode1_2.Nodes.Add(subNode1_2_3);
 
             rootNode.Nodes.Add(subNode2);
-            subNode2.Nodes.Add(subNode21);
-            subNode2.Nodes.Add(subNode22);
+            subNode2.Nodes.Add(subNode2_1);
+            subNode2.Nodes.Add(subNode2_2);
 
             rootNode.Nodes.Add(subNode3);
-            subNode3.Nodes.Add(subNode31);
-            subNode3.Nodes.Add(subNode32);
-            subNode3.Nodes.Add(subNode33);
-            subNode3.Nodes.Add(subNode34);
-            subNode3.Nodes.Add(subNode35);
-            subNode3.Nodes.Add(subNode36);
-            subNode3.Nodes.Add(subNode37);
-            subNode3.Nodes.Add(subNode38);
-            subNode3.Nodes.Add(subNode39);
+            subNode3.Nodes.Add(subNode3_1);
+            subNode3.Nodes.Add(subNode3_2);
+            subNode3.Nodes.Add(subNode3_3);
+            subNode3.Nodes.Add(subNode3_4);
+            subNode3.Nodes.Add(subNode3_5);
+            subNode3.Nodes.Add(subNode3_6);
+            subNode3.Nodes.Add(subNode3_7);
+            subNode3.Nodes.Add(subNode3_8);
+            subNode3.Nodes.Add(subNode3_9);
+            subNode3.Nodes.Add(subNode3_10);
 
             rootNode.Nodes.Add(subNode4);
-            subNode4.Nodes.Add(subNode41);
+            subNode4.Nodes.Add(subNode4_1);
 
         }
 
@@ -165,6 +167,10 @@ namespace WinFormsApp
                 case "PID控制":
                     PIDVisualizationForm form141 = new PIDVisualizationForm();
                     form141.Show();
+                    break;
+                case "打印":
+                    Print form142 = new Print();
+                    form142.Show();
                     break;
             }
 

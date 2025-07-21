@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZDiqR8WYUBY=",
+  "dgSpecHash": "hxs+3EMdJJ8=",
   "success": true,
   "projectFilePath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WinFormsApp.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,9 @@
     "C:\\Users\\Acer\\.nuget\\packages\\opentk.windowing.common\\4.8.2\\opentk.windowing.common.4.8.2.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\opentk.windowing.desktop\\4.8.2\\opentk.windowing.desktop.4.8.2.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.8.2\\opentk.windowing.graphicslibraryframework.4.8.2.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\pdfiumviewer\\2.13.0\\pdfiumviewer.2.13.0.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\pdfiumviewer.native.x86.v8-xfa\\2018.4.8.256\\pdfiumviewer.native.x86.v8-xfa.2018.4.8.256.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\pdfiumviewer.native.x86_64.v8-xfa\\2018.4.8.256\\pdfiumviewer.native.x86_64.v8-xfa.2018.4.8.256.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\sharpziplib\\1.4.2\\sharpziplib.1.4.2.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\sixlabors.fonts\\1.0.1\\sixlabors.fonts.1.0.1.nupkg.sha512",
@@ -89,5 +92,16 @@
     "C:\\Users\\Acer\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net8.0-windows7.0”还原包“PdfiumViewer 2.13.0”。此包可能与项目不完全兼容。",
+      "libraryId": "PdfiumViewer",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

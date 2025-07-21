@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\txtencoding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\txtencoding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\contentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\contentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\print.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\print.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\print.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\print.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|e:\\home\\github\\winformopentk-opencv\\winform-opentk\\winformopentkapp\\winformsapp\\winformsapp\\windowstool\\print.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{82215231-C1AF-47C5-B8ED-51AF7DC25801}|WinFormsApp\\WinFormsApp.csproj|solutionrelative:winformsapp\\windowstool\\print.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +26,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Print.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Print.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\Print.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Print.cs",
+              "RelativeToolTip": "WinFormsApp\\WindowsTool\\Print.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAA8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T13:20:56.944Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -27,15 +53,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TxtEncoding.cs",
-              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\TxtEncoding.cs",
-              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\TxtEncoding.cs",
-              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\TxtEncoding.cs",
-              "RelativeToolTip": "WinFormsApp\\WindowsTool\\TxtEncoding.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwC4AAAANAAAAAAAAAA==",
+              "Title": "ContentsForm.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\ContentsForm.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\ContentsForm.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\ContentsForm.cs",
+              "RelativeToolTip": "WinFormsApp\\ContentsForm.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAiwKsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T05:45:34.719Z",
+              "WhenOpened": "2025-07-21T13:22:24.647Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Print.Designer.cs",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Print.Designer.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\Print.Designer.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Print.Designer.cs",
+              "RelativeToolTip": "WinFormsApp\\WindowsTool\\Print.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T13:19:57.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Print.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Print.cs",
+              "RelativeDocumentMoniker": "WinFormsApp\\WindowsTool\\Print.cs",
+              "ToolTip": "E:\\home\\github\\WinformOpenTK-OpenCV\\WinForm-OpenTK\\WinformOpenTKApp\\WinFormsApp\\WinFormsApp\\WindowsTool\\Print.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "WinFormsApp\\WindowsTool\\Print.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T13:19:30.212Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
             }
           ]
         }

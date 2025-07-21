@@ -15,11 +15,14 @@
     <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)pdfiumviewer.native.x86_64.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86_64.v8-xfa.props" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.native.x86_64.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86_64.v8-xfa.props')" />
+    <Import Project="$(NuGetPackageRoot)pdfiumviewer.native.x86.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.native.x86.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86.v8-xfa.props')" />
     <Import Project="$(NuGetPackageRoot)opencvsharp4.runtime.win\4.10.0.20241108\build\net5.0\OpenCvSharp4.runtime.win.props" Condition="Exists('$(NuGetPackageRoot)opencvsharp4.runtime.win\4.10.0.20241108\build\net5.0\OpenCvSharp4.runtime.win.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.20.1\build\netstandard2.1\Microsoft.ML.OnnxRuntime.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.20.1\build\netstandard2.1\Microsoft.ML.OnnxRuntime.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.3.4\buildTransitive\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.3.4\buildTransitive\Microsoft.CodeAnalysis.Analyzers.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgPdfiumViewer Condition=" '$(PkgPdfiumViewer)' == '' ">C:\Users\Acer\.nuget\packages\pdfiumviewer\2.13.0</PkgPdfiumViewer>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\Acer\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.4</PkgMicrosoft_CodeAnalysis_Analyzers>
   </PropertyGroup>
 </Project>

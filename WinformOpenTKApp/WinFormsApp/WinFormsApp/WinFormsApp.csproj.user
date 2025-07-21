@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Update="WindowsTool\BookLabel.cs">
       <SubType>Form</SubType>
@@ -83,6 +86,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="WindowsTool\KeepCatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="WindowsTool\Print.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="WindowsTool\TxtEncoding.cs">
