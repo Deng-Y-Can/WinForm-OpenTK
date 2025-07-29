@@ -4,6 +4,9 @@
     <_LastSelectedProfileId>E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="MyOpenCV\EmguCV\CandyImage2.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="WindowsTool\BookLabel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +77,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="WindowsTool\DocumentFormatConverter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="WindowsTool\EncryptionTool.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="WindowsTool\FileSort.cs">

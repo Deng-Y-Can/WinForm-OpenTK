@@ -52,6 +52,7 @@ namespace WinFormsApp
             TreeNode subNode3_8 = new TreeNode("txt转编码");
             TreeNode subNode3_9 = new TreeNode("文件格式转换");
             TreeNode subNode3_10 = new TreeNode("打印");
+            TreeNode subNode3_11 = new TreeNode("加密小工具");
 
             TreeNode subNode4 = new TreeNode("算法");
             TreeNode subNode4_1 = new TreeNode("PID控制");
@@ -80,6 +81,7 @@ namespace WinFormsApp
             subNode3.Nodes.Add(subNode3_8);
             subNode3.Nodes.Add(subNode3_9);
             subNode3.Nodes.Add(subNode3_10);
+            subNode3.Nodes.Add(subNode3_11);
 
             rootNode.Nodes.Add(subNode4);
             subNode4.Nodes.Add(subNode4_1);
@@ -146,7 +148,7 @@ namespace WinFormsApp
                     break;
 
                 case "图片处理器":
-                    CandyImage form12 = new CandyImage();
+                    CandyImage2 form12 = new CandyImage2();
                     form12.Show();
                     break;
 
@@ -171,6 +173,10 @@ namespace WinFormsApp
                 case "打印":
                     Print form142 = new Print();
                     form142.Show();
+                    break;
+                case "加密小工具":
+                    EncryptionTool form143 = new EncryptionTool();
+                    form143.Show();
                     break;
             }
 
