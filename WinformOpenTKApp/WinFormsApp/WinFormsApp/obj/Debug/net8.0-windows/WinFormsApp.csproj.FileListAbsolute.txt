@@ -401,3 +401,7 @@ E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.Print.resources
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.MyOpenCV.EmguCV.CandyImage2.resources
 E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.EncryptionTool.resources
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\obj\Debug\net8.0-windows\WinFormsApp.WindowsTool.CompressionTool.resources
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\x64\libzstd.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\x86\libzstd.dll
+E:\home\github\WinformOpenTK-OpenCV\WinForm-OpenTK\WinformOpenTKApp\WinFormsApp\WinFormsApp\bin\Debug\net8.0-windows\ZstdNet.dll

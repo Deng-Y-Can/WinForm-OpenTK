@@ -1787,6 +1787,18 @@
           }
         }
       },
+      "ZstdNet/1.4.5": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/ZstdNet.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/ZstdNet.dll": {}
+        },
+        "build": {
+          "build/ZstdNet.targets": {}
+        }
+      },
       "Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -5314,6 +5326,25 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "ZstdNet/1.4.5": {
+      "sha512": "fi9aP1QY3ZenIMUW1pxdSjku6lYAUjScrwfXSXT1qyKtTdLxOIzeBMe+w/hQm0vMsvQnjcFInByMrIT7AlXUHA==",
+      "type": "package",
+      "path": "zstdnet/1.4.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/LICENSE",
+        "build/ZstdNet.targets",
+        "build/x64/libzstd.dll",
+        "build/x86/libzstd.dll",
+        "lib/LICENSE",
+        "lib/net45/ZstdNet.dll",
+        "lib/netstandard2.0/ZstdNet.dll",
+        "lib/netstandard2.1/ZstdNet.dll",
+        "zstdnet.1.4.5.nupkg.sha512",
+        "zstdnet.nuspec"
+      ]
+    },
     "Common/1.0.0": {
       "type": "project",
       "path": "../Common/Common.csproj",
@@ -5342,7 +5373,8 @@
       "Spire.Doc >= 13.6.14",
       "Spire.Presentation >= 10.6.4",
       "System.Management >= 9.0.1",
-      "System.ServiceProcess.ServiceController >= 9.0.6"
+      "System.ServiceProcess.ServiceController >= 9.0.6",
+      "ZstdNet >= 1.4.5"
     ]
   },
   "packageFolders": {
@@ -5482,6 +5514,10 @@
           "System.ServiceProcess.ServiceController": {
             "target": "Package",
             "version": "[9.0.6, )"
+          },
+          "ZstdNet": {
+            "target": "Package",
+            "version": "[1.4.5, )"
           }
         },
         "imports": [

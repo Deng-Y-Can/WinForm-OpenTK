@@ -29,6 +29,7 @@
     <PackageReference Include="Spire.Presentation" Version="10.6.4" />
     <PackageReference Include="System.Management" Version="9.0.1" />
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="9.0.6" />
+    <PackageReference Include="ZstdNet" Version="1.4.5" />
   </ItemGroup>
 
   <ItemGroup>

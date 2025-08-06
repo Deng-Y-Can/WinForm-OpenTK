@@ -52,10 +52,12 @@ namespace WinFormsApp
             TreeNode subNode3_8 = new TreeNode("txt转编码");
             TreeNode subNode3_9 = new TreeNode("文件格式转换");
             TreeNode subNode3_10 = new TreeNode("打印");
-            TreeNode subNode3_11 = new TreeNode("加密小工具");
+           
 
             TreeNode subNode4 = new TreeNode("算法");
             TreeNode subNode4_1 = new TreeNode("PID控制");
+            TreeNode subNode4_2 = new TreeNode("压缩小工具");
+            TreeNode subNode4_3 = new TreeNode("加密小工具");
 
 
             rootNode.Nodes.Add(subNode1);
@@ -81,10 +83,12 @@ namespace WinFormsApp
             subNode3.Nodes.Add(subNode3_8);
             subNode3.Nodes.Add(subNode3_9);
             subNode3.Nodes.Add(subNode3_10);
-            subNode3.Nodes.Add(subNode3_11);
+            
 
             rootNode.Nodes.Add(subNode4);
             subNode4.Nodes.Add(subNode4_1);
+            subNode4.Nodes.Add(subNode4_2);
+            subNode4.Nodes.Add(subNode4_3);
 
         }
 
@@ -177,6 +181,10 @@ namespace WinFormsApp
                 case "加密小工具":
                     EncryptionTool form143 = new EncryptionTool();
                     form143.Show();
+                    break;
+                case "压缩小工具":
+                    CompressionTool form144 = new CompressionTool();
+                    form144.Show();
                     break;
             }
 

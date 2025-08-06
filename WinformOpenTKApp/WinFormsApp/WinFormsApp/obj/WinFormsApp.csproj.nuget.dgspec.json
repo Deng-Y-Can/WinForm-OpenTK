@@ -214,6 +214,10 @@
             "System.ServiceProcess.ServiceController": {
               "target": "Package",
               "version": "[9.0.6, )"
+            },
+            "ZstdNet": {
+              "target": "Package",
+              "version": "[1.4.5, )"
             }
           },
           "imports": [
